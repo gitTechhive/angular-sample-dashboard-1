@@ -1,0 +1,24 @@
+<div class='pagination-container'>
+  <div class='pagination-left'>
+    <p class='mb-0'>{{+pageSize * (page -1 )+1}}-{{ +pageSize * page}} of {{ totalData }} items</p>
+  </div>
+  <div class='pagination-right'>
+    <ul>
+      <li class="previous"><button class="btn btn-sm" (click)="onPrevious()" [disabled]="this.page == 1">
+          <i class='icon icon-arrow-left-2'></i></button>
+      </li>
+      <li class="number" *ngFor="let title of ChangeArray" [ngClass]="this.page == title ? 'active': ''"><button
+          class="btn btn-sm" (click)="onPaginationClick(title)">
+          {{title}}</button>
+      </li>
+      <li class="next"><button class="btn btn-sm" (click)="onNext()"
+          [disabled]="this.paginatedArray.length == this.page">
+          <i class='icon icon-arrow-right-3'></i></button>
+      </li>
+    </ul>
+    <div class="form-group form-group-sm mb-0">
+      <ng-select [items]="pageSizeList" bindLabel="label" bindValue="value" class="theme-ngselect"
+        [(ngModel)]="pageSize" (change)="onSelectPageLength()" [clearable]="false" [searchable]="false"></ng-select>
+    </div>
+  </div>
+</div>

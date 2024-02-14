@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { UtilsService } from './shared/services/utils.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'sample-dashboard-1';
+  title = 'angular-sample-dashboard-1';
+
+  ngAfterContentChecked() { this.cd.detectChanges() }
+
+  constructor(public utilsService: UtilsService, public cd: ChangeDetectorRef) {}
+
+  ngOnInit(): void { 
+    
+  }
 }
+
