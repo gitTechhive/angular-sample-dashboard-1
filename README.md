@@ -1,27 +1,46 @@
-# AngularSampleDashboard1
+# Angular Sample Dashboard 1
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+## Getting Started
 
-## Development server
+### Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Before you begin, ensure you have `Node.js` and `npm` installed on your machine.
 
-## Code scaffolding
+### Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository:
+```
+git clone https://github.com/gitTechhive/angular-sample-dashboard-1.git
+```
+2. Navigate to the project directory:
+```
+cd angular-sample-dashboard-1
+```
+3. Install dependencies:
+```
+npm install
+```
 
-## Build
+### Starting the Development Server
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To start the development server with a selected port, run:
+```
+npm start -- --port <selected-port>
+``` 
+Example
+```
+npm start -- --port 3000
+```
+This command will start the development server and automatically open your default browser to `http://localhost:<selected-port>/`.
+```
+http://localhost:3000/
+```
 
-## Running unit tests
+### Building the Project
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To build the project, run:
+```
+npm run build
+```
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The build artifacts will be stored in the `dist/` directory.

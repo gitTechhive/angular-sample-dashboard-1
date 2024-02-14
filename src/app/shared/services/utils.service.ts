@@ -471,6 +471,25 @@ export class UtilsService {
   }
 
   /**
+   * Clear data in the local storage with the provided key.
+   * @param {string} key - The key under which the data to be removed.
+   */
+  clearDataLocally(key: string): void {
+    localStorage.removeItem(key);
+  }
+
+  /**
+   * Formats a time string in 24-hour format to 12-hour format with AM/PM indication.
+   * @param {string} timeString - The time string in the format "HH:MM" (24-hour format).
+   * @returns {string} The formatted time string in the format "HH:MM AM/PM" (12-hour format).
+  */
+  formatTime(timeString) {
+    const [hourString, minute] = timeString.split(":");
+    const hour = +hourString % 24;
+    return (hour % 12 || 12) + ":" + minute + (hour < 12 ? "AM" : "PM");
+  }
+  
+  /**
   * Redirect to Session Expired Page
   */
   goToSessionExpired() {
