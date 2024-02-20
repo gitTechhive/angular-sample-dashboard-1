@@ -1,3 +1,44 @@
-<p>
-  login works!
-</p>
+<div class="authentication">
+  <div class="auth-outer">
+    <div class="auth-left">
+      <div class='auth-forms-outer'>
+        <div class="auth-card">
+          <div class='auth-titlebar'>
+            <div class="auth-logo-small">
+              <img src="assets/images/auth-logo-small.svg" alt="Portfolio - Angular">
+            </div>
+            <h4>Welcome Back</h4>
+          </div>
+          <div class='auth-forms'>
+            <h6>Continue with email address</h6>
+            <div class="form-group">
+              <div class="form-group-icon-start">
+                <div class="control-icon"><i class="icon icon-sms"></i></div>
+                <input type="text" class="form-control" placeholder="Your email" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-group-icon-start">
+                <div class="control-icon"><i class="icon icon-sms"></i></div>
+                <input type="text" class="form-control" placeholder="Password" />
+              </div>
+            </div>
+            <div class="">
+                
+            </div>
+            <div class='forms-button'>
+              <button class="btn btn-primary">Continue</button>
+              <button class="btn btn-google"><img src="assets/images/google.svg" alt="Portfolio - Angular">Google</button>
+            </div>
+          </div>
+          <div class='forms-footer'>
+            Don’t have an account? <a class="auth-link" [routerLink]="['/auth/login']">Sign up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="auth-right">
+      <app-auth-sidebar></app-auth-sidebar>
+    </div>
+  </div>
+</div>

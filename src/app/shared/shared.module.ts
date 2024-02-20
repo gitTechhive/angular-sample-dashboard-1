@@ -12,6 +12,7 @@ import { AuthHeaderSigninComponent } from './components/auth-header-signin/auth-
 import { AuthHeaderSignupComponent } from './components/auth-header-signup/auth-header-signup.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { AuthSidebarComponent } from './components/auth-sidebar/auth-sidebar.component';
 
 @NgModule({
   imports: [
@@ -30,12 +31,13 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     NotFoundComponent,
     SessionExpiredComponent,
     AuthHeaderComponent,
+    AuthSidebarComponent,
     AuthHeaderSigninComponent,
     AuthHeaderSignupComponent,
     SidebarComponent,
     PaginationComponent,
   ],
-  declarations: [AccessDeniedComponent, NavbarComponent, NotFoundComponent, SessionExpiredComponent, SidebarComponent, AuthHeaderComponent, AuthHeaderSigninComponent, AuthHeaderSignupComponent, SidebarComponent, PaginationComponent]
+  declarations: [AccessDeniedComponent, NavbarComponent, NotFoundComponent, SessionExpiredComponent, SidebarComponent, AuthHeaderComponent, AuthSidebarComponent, AuthHeaderSigninComponent, AuthHeaderSignupComponent, SidebarComponent, PaginationComponent]
 })
 
 export class SharedModule {
