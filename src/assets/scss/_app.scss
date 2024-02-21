@@ -129,7 +129,9 @@
             margin-top: 20px;
         }
 
-        &.auth-card-otp{
+        &.auth-card-otp,
+        &.auth-card-forgotpassword,
+        &.auth-card-newpassword{
             .auth-titlebar{
                 border-bottom: 0;
                 padding-bottom: 0;
