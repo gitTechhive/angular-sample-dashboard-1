@@ -14,6 +14,17 @@
 .button-group{
     display: flex; flex-direction: row; gap: 8px;
 }
+.btn-icon{
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    font-size: 16px;
+    margin: 0;
+
+    i{
+        -webkit-text-stroke: 0.5px;
+    }
+}
 .btn-icon-text{
     display: flex; align-items: center;
     justify-content: center;
@@ -23,6 +34,7 @@
         -webkit-text-stroke: 0.5px;
     }
 }
+
 .btn-link-button{
     background-color: transparent;
     border: 0;
