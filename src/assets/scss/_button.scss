@@ -1,5 +1,6 @@
 .btn{ 
     outline: 0 !important; box-shadow: none !important; 
+    border-radius: 6px;
 
     &:not(.btn-sm,.btn-lg){
         font-size: 14px;
