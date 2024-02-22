@@ -1,3 +1,133 @@
-<p>
-  login works!
-</p>
+<div class="authentication">
+  <div class="auth-outer">
+    <div class="auth-left">
+      <!-- Login Start -->
+      <div class='auth-forms-outer'>
+        <div class="auth-card">
+          <div class='auth-titlebar'>
+            <div class="auth-logo-small">
+              <img src="assets/images/auth-logo-small.svg" alt="Portfolio - Angular">
+            </div>
+            <h4>Welcome Back</h4>
+            <div class="nav-tabs-container nav-tabs-auth">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="email-tab" data-bs-toggle="tab" data-bs-target="#email-tab-pane"
+                    type="button" role="tab" aria-controls="email-tab-pane" aria-selected="true"><i
+                      class="bi bi-envelope-fill"></i>
+                    Email</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="mobile-tab" data-bs-toggle="tab" data-bs-target="#mobile-tab-pane"
+                    type="button" role="tab" aria-controls="mobile-tab-pane" aria-selected="false"><i
+                      class="bi bi-telephone"></i>
+                    Mobile</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-tabs-container">
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="email-tab-pane" role="tabpanel" aria-labelledby="email-tab"
+                tabindex="0">
+                <div class='auth-forms'>
+                  <h6>Continue with email address</h6>
+                  <div class="form-group">
+                    <div class="form-group-icon-start">
+                      <div class="control-icon"><i class="bi bi-envelope"></i></div>
+                      <input type="email" class="form-control" placeholder="Your email" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-group-icon-start form-group-password">
+                      <div class="control-icon"><i class="bi bi-lock"></i></div>
+                      <input type="password" class="form-control" placeholder="Password" />
+                      <button class="btn btn-password">
+                        <i class="bi bi-eye"></i>
+                        <!-- <i class="bi bi-eye-slash"></i> -->
+                      </button>
+                    </div>
+                    <p class="error-msg">Error Message Place Here...!!!</p>
+                  </div>
+                  <div class="forms-forgot-rememberme">
+                    <div class="forms-rememberme">
+                      <div class="checkbox checkbox-primary checkbox-small">
+                        <input type="checkbox" id="rememberme" class="material-inputs
+                          filled-in" />
+                        <label for="rememberme">Remember Me</label>
+                      </div>
+                    </div>
+                    <div class="forms-forgot">
+                      <a class="text-primary" [routerLink]="['/auth/forgot-password']">Forgot Password?</a>
+                    </div>
+                  </div>
+                  <div class='forms-button'>
+                    <button class="btn btn-primary">Continue</button>
+                    <button class="btn btn-google"><img src="assets/images/google.svg"
+                        alt="Portfolio - Angular">Google</button>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="mobile-tab-pane" role="tabpanel" aria-labelledby="mobile-tab" tabindex="0">
+                <div class='auth-forms'>
+                  <h6>Continue with mobile number</h6>
+                  <div class="form-group">
+                    <div class="form-group-icon-start">
+                      <div class="control-icon"><i class="bi bi-telephone"></i></div>
+                      <input type="text" class="form-control" placeholder="Mobile No" />                     
+                    </div>                    
+                  </div>
+                  <div class='forms-button'>
+                    <button class="btn btn-primary">Continue</button>
+                    <button class="btn btn-google"><img src="assets/images/google.svg"
+                        alt="Portfolio - Angular">Google</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='forms-footer'>
+            Don’t have an account? <a class="auth-link" [routerLink]="['/auth/registration']">Sign up</a>
+          </div>
+        </div>
+      </div>
+      <!-- Login End -->
+
+      <!-- Account Created Start -->
+      <div class='auth-forms-outer d-none'>
+        <div class="auth-card auth-card-otp">
+          <div class='auth-titlebar'>
+            <div class="auth-logo-small">
+              <img src="assets/images/auth-otp-verify.svg" alt="Portfolio - Angular">
+            </div>
+            <h4>Verification</h4>
+            <p>Enter the OTP send to <b class="text-primary me-2">+1 8143519149</b>
+              <button class="btn btn-icon"><i class="bi bi-pencil"></i></button>
+            </p>
+          </div>
+          <div class='auth-forms'>
+            <div class="form-group">
+              <div class="form-group-otp">
+                <!-- <ng-otp-input (keyup.enter)="onSubmitOTP()" (onInputChange)="onOtpChange($event)" [config]="otpInputConfig" #ngOtpInput></ng-otp-input> -->
+              </div>
+            </div>
+            <div class="otp-resend-box">
+              <!-- <p>Resend code in: <span class="text-primary"><b>2:30</b></span></p> -->
+              <p class="mb-0"><button class="btn btn-resendotp">Resend OTP</button></p>
+            </div>
+            <div class='forms-button'>
+              <button class="btn btn-primary">Verify</button>
+            </div>
+          </div>
+          <div class='forms-footer'>
+            Back to <a class="auth-link" [routerLink]="['/auth/login']">Sign In</a>
+          </div>
+        </div>
+      </div>
+      <!-- Account Created End -->
+    </div>
+    <div class="auth-right">
+      <app-auth-sidebar></app-auth-sidebar>
+    </div>
+  </div>
+</div>

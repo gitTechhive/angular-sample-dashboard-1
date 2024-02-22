@@ -1,3 +1,124 @@
-<p>
-  registration works!
-</p>
+<div class="authentication">
+  <div class="auth-outer">
+    <div class="auth-left">
+      <!-- Sign Up Start -->
+      <div class='auth-forms-outer'>
+        <div class="auth-card">
+          <div class='auth-titlebar'>
+            <div class="auth-logo-small">
+              <img src="assets/images/auth-logo-small.svg" alt="Portfolio - Angular">
+            </div>
+            <h4>Sign Up</h4>
+          </div>
+          <div class='auth-forms'>
+            <div class="row">
+              <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <div class="form-group-icon-start">
+                    <div class="control-icon"><i class="bi bi-person-circle"></i></div>
+                    <input type="text" class="form-control" placeholder="First Name" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <div class="form-group-icon-start">
+                    <div class="control-icon"><i class="bi bi-person-circle"></i></div>
+                    <input type="text" class="form-control" placeholder="Last Name" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-group-icon-start">
+                <div class="control-icon"><i class="bi bi-envelope"></i></div>
+                <input type="email" class="form-control" placeholder="Email" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-group-icon-start">
+                <div class="control-icon"><i class="bi bi-telephone"></i></div>
+                <input type="text" class="form-control" placeholder="Mobile No" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-group-icon-start form-group-password">
+                <div class="control-icon"><i class="bi bi-lock"></i></div>
+                <input type="password" class="form-control" placeholder="Password" />
+                <button class="btn btn-password">
+                  <i class="bi bi-eye"></i>
+                  <!-- <i class="bi bi-eye-slash"></i> -->
+                </button>
+              </div>
+            </div>
+
+            <div class='forms-button'>
+              <button class="btn btn-primary">Continue</button>
+              <button class="btn btn-google"><img src="assets/images/google.svg"
+                  alt="Portfolio - Angular">Google</button>
+            </div>
+          </div>
+          <div class='forms-footer'>
+            Already have an account? <a class="auth-link" [routerLink]="['/auth/login']">Sign In</a>
+          </div>
+        </div>
+      </div>
+      <!-- Sign Up End -->
+
+      <!-- OTP Start -->
+      <div class='auth-forms-outer d-none'>
+        <div class="auth-card auth-card-otp">
+          <div class='auth-titlebar'>
+            <div class="auth-logo-small">
+              <img src="assets/images/auth-otp-verify.svg" alt="Portfolio - Angular">
+            </div>
+            <h4>Verification</h4>
+            <p>Enter the OTP send to <b class="text-primary me-2">+1 8143519149</b>
+              <button class="btn btn-icon"><i class="bi bi-pencil"></i></button>
+            </p>
+          </div>
+          <div class='auth-forms'>
+            <div class="form-group">
+              <div class="form-group-otp">
+                <!-- <ng-otp-input (keyup.enter)="onSubmitOTP()" (onInputChange)="onOtpChange($event)" [config]="otpInputConfig" #ngOtpInput></ng-otp-input> -->
+              </div>
+            </div>
+            <div class="otp-resend-box">
+              <!-- <p>Resend code in: <span class="text-primary"><b>2:30</b></span></p> -->
+              <p class="mb-0"><button class="btn btn-resendotp">Resend OTP</button></p>
+            </div>
+            <div class='forms-button'>
+              <button class="btn btn-primary">Verify</button>
+            </div>
+          </div>
+          <div class='forms-footer'>
+            Back to <a class="auth-link" [routerLink]="['/auth/login']">Sign In</a>
+          </div>
+        </div>
+      </div>
+      <!-- OTP End -->
+
+      <!-- Account Start -->
+      <div class='auth-forms-outer d-none'>
+        <div class="auth-card auth-card-otp">
+          <div class='auth-titlebar'>
+            <div class="auth-logo-small">
+              <img src="assets/images/auth-otp-verify.svg" alt="Portfolio - Angular">
+            </div>
+            <h4>Congratulations!</h4>
+          </div>
+          <div class='auth-forms'>
+            <p class="text-center">Your account has been created successfully!</p>
+            <div class='forms-button'>
+              <button class="btn btn-primary">Go to Dashboard</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Account End -->
+    </div>
+    <div class="auth-right">
+      <app-auth-sidebar></app-auth-sidebar>
+    </div>
+  </div>
+</div>

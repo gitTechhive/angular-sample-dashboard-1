@@ -1,0 +1,92 @@
+.nav-tabs-container{
+    .nav-tabs{
+        border: 0; gap: 8px;
+        .nav-link{
+            border: 0;
+            padding: 5px 10px;
+            font-size: 13px;
+            border-radius: 4px !important;
+            background-color: $white_color;
+            color: $primary_color;
+
+            &.active,
+            &:hover{
+                background-color: $primary_color;
+                color: $white_color;
+            }
+        }
+    }
+    &.nav-tabs-auth{
+        .nav-tabs{
+            background-color: #F4F4F4;
+            padding: 5px;
+            border-radius: 40px;
+            gap: 0;
+
+            .nav-item{
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding: 0 5px;
+
+                &:nth-child(1){
+                    padding-left: 0;
+                }
+                &:nth-last-child(1){
+                    padding-right: 0;
+                }
+            }
+            .nav-link{
+                border: 0;
+                padding: 8px 10px;
+                font-size: 14px;
+                border-radius: 40px !important;
+                background-color: transparent;
+                color: #6F767E;
+                width: 100%;
+                min-height: 44px;
+
+                i{
+                    margin-right: 5px;
+                }
+    
+                &.active,
+                &:hover{
+                    background-color: $primary_color;
+                    color: $white_color;
+                }
+                &.active{
+                    box-shadow: 0px 4px 8px -4px #00000040;
+                    box-shadow: 0px 2px 0px 0px #FFFFFF40 inset;
+                    box-shadow: 0px -1px 1px 0px #0000000A inset;
+                }
+            }
+        }
+    }
+    &.nav-tabs-style1{
+        .nav-tabs{
+            background-color: $white_color;
+            border: 1px solid #EAECF0;
+            padding: 5px;
+            border-radius: 6px;
+        }
+    }
+    &.nav-tabs-style2{
+        .nav-tabs{
+            .nav-link{
+                border-radius: 0px !important;
+                background-color: transparent;
+                color: #667085;
+                border-bottom: 2px solid transparent;
+
+                &.active,
+                &:hover{
+                    background-color: transparent;
+                    color: $info_color;
+                }
+                &.active{
+                    border-color: $info_color;
+                }
+            }
+        }
+    }
+}

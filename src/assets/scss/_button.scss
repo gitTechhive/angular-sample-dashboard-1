@@ -1,0 +1,119 @@
+.btn{ 
+    outline: 0 !important; box-shadow: none !important; 
+    border-radius: 6px;
+
+    &:not(.btn-sm,.btn-lg){
+        font-size: 14px;
+    }
+    &.btn-xs{
+        font-size: 11px;
+        font-weight: 600;
+        padding: 4px 10px;
+    }
+}
+.button-group{
+    display: flex; flex-direction: row; gap: 8px;
+}
+.btn-icon{
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    font-size: 16px;
+    margin: 0;
+
+    i{
+        -webkit-text-stroke: 0.5px;
+    }
+}
+.btn-icon-text{
+    display: flex; align-items: center;
+    justify-content: center;
+
+    i{
+        margin-right: 4px;
+        -webkit-text-stroke: 0.5px;
+    }
+}
+
+.btn-link-button{
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+.btn-primary{
+    background-color: $primary_color;
+    border: 1px solid $primary_color;
+    color: $white_color;
+
+    &:hover,
+    &:focus,
+    &.btn.active,
+    &.btn:active,
+    &.btn.disabled,
+    &:disabled,
+    &:focus-visible,
+    &:first-child:active {
+        background-color: $primary_color;
+        border: 1px solid $primary_color;
+        color: $white_color;
+    }
+}
+.btn-outline-primary{
+    background-color: transparent;
+    border: 1px solid $primary_color;
+    color: $primary_color;
+
+    &:hover,
+    &.btn.active,
+    &.btn:active,
+    &.btn.disabled,
+    &.btn.show,
+    &:disabled,
+    &:focus-visible,
+    &:first-child:active {
+        background-color: $primary_color;
+        border: 1px solid $primary_color;
+        color: $white_color;
+    }
+}
+.btn-white{
+    background-color: $white_color;
+    border: 1px solid #DFE5EF;
+    color: $gray_color;
+
+    &:hover,
+    &.btn.active,
+    &.btn:active,
+    &.btn.disabled,
+    &:disabled,
+    &:focus-visible,
+    &:first-child:active {
+        background-color: $primary_color;
+        border: 1px solid $primary_color;
+        color: $white_color;
+    }
+}
+.btn-google{
+    background-color: #FCFCFC;
+    border: 1px solid #EFEFEF;
+    color: #1A1D1F;
+
+    img{
+        height: 20px;
+        margin-right: 8px;
+    }
+
+    &:hover,
+    &.btn.active,
+    &.btn:active,
+    &.btn.disabled,
+    &.btn.show,
+    &:disabled,
+    &:focus-visible,
+    &:first-child:active {
+        background-color: #EFEFEF;
+        border: 1px solid #EFEFEF;
+        color: #1A1D1F;
+    }
+}
