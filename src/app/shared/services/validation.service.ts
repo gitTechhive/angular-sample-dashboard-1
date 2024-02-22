@@ -39,6 +39,7 @@ export class ValidationService {
   PATTERN_FOR_ALPHABATES_AND_SPACE_AND_ROUND_BRACKETS = '^([a-zA-Z()][a-zA-Z() ]*)';
   LAB_MASTER_NAME = /.*\S.*/;
   ONLY_SPACE_NOT_ALLOW = /.*\S.*/;
+  PATTERN_FOR_EMAIL = '[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,50}';
 
   //Pattern for Password for 6 characters,one upper case letter,lower case letter,digit and special character like *,@,$. 
   PATTERN_FOR_PASSWORD = /^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,32}$/;

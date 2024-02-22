@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    API_URL: '',
+    API_URL: 'http://192.168.2.13:9002/',
     WEBSOCKET_CONNECTION_URL: '',
 };
 

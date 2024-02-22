@@ -13,6 +13,7 @@ import { AuthHeaderSignupComponent } from './components/auth-header-signup/auth-
 import { NgSelectModule } from '@ng-select/ng-select';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { AuthSidebarComponent } from './components/auth-sidebar/auth-sidebar.component';
+import { NgOtpInputModule } from 'ng-otp-input';
 
 @NgModule({
   imports: [
@@ -21,12 +22,14 @@ import { AuthSidebarComponent } from './components/auth-sidebar/auth-sidebar.com
     FormsModule,
     RouterModule,
     NgSelectModule,
+    NgOtpInputModule,
   ],
   exports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     NgSelectModule,
+    NgOtpInputModule,
     NavbarComponent,
     NotFoundComponent,
     SessionExpiredComponent,

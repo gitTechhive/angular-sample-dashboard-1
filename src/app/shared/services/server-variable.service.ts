@@ -8,7 +8,9 @@ export class ServerVariableService {
   PATH_FOR_API = '';
 
   // AUTH
-  LOGIN_API = this.PATH_FOR_API + '';
+  CAPTCHA_GENERATION = this.PATH_FOR_API + 'captcha/generate'
+  CAPTCHA_VERIFICATION = this.PATH_FOR_API + 'captcha/verification'
+  LOGIN_API = this.PATH_FOR_API + 'login';
   REGISTRATION_API = this.PATH_FOR_API + '';
 
   //REFRESH TOKEN
