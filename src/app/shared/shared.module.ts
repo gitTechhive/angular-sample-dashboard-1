@@ -14,6 +14,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { AuthSidebarComponent } from './components/auth-sidebar/auth-sidebar.component';
 import { NgOtpInputModule } from 'ng-otp-input';
+import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
     RouterModule,
     NgSelectModule,
     NgOtpInputModule,
+    GoogleSigninButtonModule
   ],
   exports: [
     CommonModule,
@@ -39,6 +41,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
     AuthHeaderSignupComponent,
     SidebarComponent,
     PaginationComponent,
+    GoogleSigninButtonModule
   ],
   declarations: [AccessDeniedComponent, NavbarComponent, NotFoundComponent, SessionExpiredComponent, SidebarComponent, AuthHeaderComponent, AuthSidebarComponent, AuthHeaderSigninComponent, AuthHeaderSignupComponent, SidebarComponent, PaginationComponent]
 })

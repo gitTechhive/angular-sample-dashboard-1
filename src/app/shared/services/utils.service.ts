@@ -25,10 +25,10 @@ export class UtilsService {
 
   /**Initial configuration settings for the toast notifications*/
   toastConfig = {
-    disableTimeout: false,    
-    timeoutDuration: 10000,   
-    positionClass: 'toast-top-center',  
-    closeButtonEnabled: true 
+    disableTimeOut: false,
+    timeOut: 10000,
+    positionClass: 'toast-top-center',
+    closeButton: true,
   };
 
   /** Variable for showing loader*/
