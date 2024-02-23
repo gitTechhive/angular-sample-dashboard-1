@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { UtilsService } from './shared/services/utils.service';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,16 @@ export class AppComponent {
 
   ngAfterContentChecked() { this.cd.detectChanges() }
 
-  constructor(public utilsService: UtilsService, public cd: ChangeDetectorRef) {}
+  constructor(public utilsService: UtilsService, public cd: ChangeDetectorRef, private router: Router) {}
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
+    
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
     
   }
 }

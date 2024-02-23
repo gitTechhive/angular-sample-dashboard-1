@@ -2,60 +2,129 @@
   <div class="auth-outer">
     <div class="auth-left">
       <!-- Sign Up Start -->
-      <div class='auth-forms-outer'>
+      <div *ngIf="step === enumForSignupStep.USER_DETAILS" class='auth-forms-outer'>
         <div class="auth-card">
+          <div>
+            <img [src]="captchaImage" alt="test">
+            <div class="form-group-icon-start">
+              <input type="email" class="form-control" placeholder="Your Captcha" [(ngModel)]="captchaInput"/>
+              <div>
+                <button class="btn btn-primary" (click)="captchaVerification()">Verify</button>
+                <button class="btn btn-primary" (click)="captchaRegenertion()">Regenerate</button>
+              </div>
+            </div>
+          </div>
           <div class='auth-titlebar'>
             <div class="auth-logo-small">
               <img src="assets/images/auth-logo-small.svg" alt="Portfolio - Angular">
             </div>
             <h4>Sign Up</h4>
           </div>
-          <div class='auth-forms'>
+          <div class='auth-forms' [formGroup]="signUpFormGroup">
             <div class="row">
               <div class="col-lg-6 col-md-12 col-sm-12">
                 <div class="form-group">
                   <div class="form-group-icon-start">
                     <div class="control-icon"><i class="bi bi-person-circle"></i></div>
-                    <input type="text" class="form-control" placeholder="First Name" />
+                    <input type="text" class="form-control" placeholder="First Name" formControlName="first_name"
+                      [maxlength]="utilsService.validationService.MAX_30" [(ngModel)]="signUpObj.firstName"
+                      (keyup.enter)="onRegistration()" />
                   </div>
+                  <p class="error-msg"
+                    *ngIf="signUpFormGroup.controls['first_name'].hasError('required') &&  signUpFormGroup.controls['first_name'].touched">
+                    {{utilsService.validationService.FIRST_NAME_REQUIRED}}
+                  </p>
+                  <p class="error-msg"
+                    *ngIf="!signUpFormGroup.controls['first_name'].hasError('required') && !signUpFormGroup.controls['first_name'].valid && signUpFormGroup.controls['first_name'].touched"
+                    [(ngModel)]="signUpObj.firstName">
+                    {{utilsService.validationService.FIRST_NAME_REQUIRED}}
+                  </p>
                 </div>
               </div>
               <div class="col-lg-6 col-md-12 col-sm-12">
                 <div class="form-group">
                   <div class="form-group-icon-start">
                     <div class="control-icon"><i class="bi bi-person-circle"></i></div>
-                    <input type="text" class="form-control" placeholder="Last Name" />
+                    <input type="text" class="form-control" placeholder="Last Name" formControlName="last_name"
+                      [maxlength]="utilsService.validationService.MAX_30" [(ngModel)]="signUpObj.lastName"
+                      (keyup.enter)="onRegistration()" />
                   </div>
+                  <p class="error-msg"
+                    *ngIf="signUpFormGroup.controls['last_name'].hasError('required') &&  signUpFormGroup.controls['last_name'].touched">
+                    {{utilsService.validationService.LAST_NAME_REQUIRED}}
+                  </p>
+                  <p class="error-msg"
+                    *ngIf="!signUpFormGroup.controls['last_name'].hasError('required') && !signUpFormGroup.controls['last_name'].valid && signUpFormGroup.controls['last_name'].touched">
+                    {{utilsService.validationService.LAST_NAME_REQUIRED}}
+                  </p>
                 </div>
               </div>
             </div>
             <div class="form-group">
               <div class="form-group-icon-start">
                 <div class="control-icon"><i class="bi bi-envelope"></i></div>
-                <input type="email" class="form-control" placeholder="Email" />
+                <input type="email" class="form-control" placeholder="Email" formControlName="email"
+                  (keyup.enter)="onRegistration()" [(ngModel)]="signUpObj.email" />
               </div>
+              <p class="error-msg"
+                *ngIf="signUpFormGroup.controls['email'].hasError('required') &&  signUpFormGroup.controls['email'].touched">
+                {{utilsService.validationService.EMAIL_REQUIRED}}
+              </p>
+              <p class="error-msg"
+                *ngIf="!signUpFormGroup.controls['email'].hasError('required') && !signUpFormGroup.controls['email'].valid && signUpFormGroup.controls['email'].touched">
+                {{utilsService.validationService.EMAIL_INVALID}}
+              </p>
+            </div>
+            <div class="form-group">
+              <div class="form-group-icon-start">
+                <ng-select [items]="countryCodeList" bindLabel="label" bindValue="value" formControlName="country_code"
+                  [clearable]="true" class="theme-ngselect" appendTo="body" placeholder="Country Code"
+                  [(ngModel)]="signUpObj.countryCode">
+                </ng-select>
+              </div>
+              <p class="error-msg"
+                *ngIf="signUpFormGroup.controls['country_code'].hasError('required') &&  signUpFormGroup.controls['country_code'].touched">
+                {{utilsService.validationService.COUNTRY_CODE_REQUIRED}}
+              </p>
             </div>
             <div class="form-group">
               <div class="form-group-icon-start">
                 <div class="control-icon"><i class="bi bi-telephone"></i></div>
-                <input type="text" class="form-control" placeholder="Mobile No" />
+                <input type="text" class="form-control" placeholder="Mobile No" formControlName="mobile_no" [maxlength]="12"
+                  [(ngModel)]="signUpObj.mobileNo" (keyup.enter)="onRegistration()" />
               </div>
+              <p class="error-msg"
+                *ngIf="signUpFormGroup.controls['mobile_no'].hasError('required') &&  signUpFormGroup.controls['mobile_no'].touched">
+                {{utilsService.validationService.PHONE_NUMBER_REQUIRED}}
+              </p>
+              <p class="error-msg"
+                *ngIf="!signUpFormGroup.controls['mobile_no'].hasError('required') && !signUpFormGroup.controls['mobile_no'].valid && signUpFormGroup.controls['mobile_no'].touched">
+                {{utilsService.validationService.PHONE_NUMBER_INVALID}}
+              </p>
             </div>
-            <div class="form-group">
-              <div class="form-group-icon-start form-group-password">
-                <div class="control-icon"><i class="bi bi-lock"></i></div>
-                <input type="password" class="form-control" placeholder="Password" />
-                <button class="btn btn-password">
-                  <i class="bi bi-eye"></i>
-                  <!-- <i class="bi bi-eye-slash"></i> -->
-                </button>
-              </div>
-            </div>
-
+          
+            <!-- <div class="form-group">
+                        <div class="form-group-icon-start form-group-password">
+                          <div class="control-icon"><i class="bi bi-lock"></i></div>
+                          <input [type]="flagForPasswordHideShow ? 'password' : 'text'" class="form-control" placeholder="Password" formControlName="password"/>
+                          <button class="btn btn-password" (click)="flagForPasswordHideShow = !flagForPasswordHideShow">
+                            <i class="bi bi-eye"></i>
+                            <i class="bi bi-eye"
+                              [ngClass]="{'bi bi-eye': flagForPasswordHideShow === false, 'bi bi-eye-slash': flagForPasswordHideShow}"></i>
+                            <i class="bi bi-eye-slash"></i>
+                          </button>
+                        </div>
+                        <p class="error-msg"
+                          *ngIf="signUpFormGroup.controls['password'].hasError('required') &&  signUpFormGroup.controls['password'].touched">
+                          {{utilsService.validationService.PASSWORD_REQUIRED}}
+                        </p>
+                      </div> -->
+          
             <div class='forms-button'>
-              <button class="btn btn-primary">Continue</button>
-              <button class="btn btn-google"><img src="assets/images/google.svg"
-                  alt="Portfolio - Angular">Google</button>
+              <button class="btn btn-primary" (click)="onRegistration()">Continue</button>.
+              <asl-google-signin-button text="signup_with" type='standard' size='large'></asl-google-signin-button>
+              <!-- <button class="btn btn-google"><img src="assets/images/google.svg"
+                            alt="Portfolio - Angular">Google</button> -->
             </div>
           </div>
           <div class='forms-footer'>
@@ -66,40 +135,40 @@
       <!-- Sign Up End -->
 
       <!-- OTP Start -->
-      <div class='auth-forms-outer d-none'>
+      <div *ngIf="step === enumForSignupStep.OTP_VERIFICATION" class='auth-forms-outer'>
         <div class="auth-card auth-card-otp">
           <div class='auth-titlebar'>
             <div class="auth-logo-small">
               <img src="assets/images/auth-otp-verify.svg" alt="Portfolio - Angular">
             </div>
             <h4>Verification</h4>
-            <p>Enter the OTP send to <b class="text-primary me-2">+1 8143519149</b>
-              <button class="btn btn-icon"><i class="bi bi-pencil"></i></button>
+            <p>Enter the OTP send to <b class="text-primary me-2">{{signUpObj?.email}}</b>
+              <button class="btn btn-icon" (click)="redirectToSignIn(true)"><i class="bi bi-pencil"></i></button>
             </p>
           </div>
           <div class='auth-forms'>
             <div class="form-group">
               <div class="form-group-otp">
-                <!-- <ng-otp-input (keyup.enter)="onSubmitOTP()" (onInputChange)="onOtpChange($event)" [config]="otpInputConfig" #ngOtpInput></ng-otp-input> -->
+                <ng-otp-input (keyup.enter)="onSubmitOTP()" (onInputChange)="onOtpChange($event)" [config]="otpInputConfig" #ngOtpInput></ng-otp-input>
               </div>
             </div>
             <div class="otp-resend-box">
               <!-- <p>Resend code in: <span class="text-primary"><b>2:30</b></span></p> -->
-              <p class="mb-0"><button class="btn btn-resendotp">Resend OTP</button></p>
+              <p class="mb-0"><button class="btn btn-resendotp" (click)="onResendOTP()">Resend OTP</button></p>
             </div>
             <div class='forms-button'>
-              <button class="btn btn-primary">Verify</button>
+              <button class="btn btn-primary" (click)="onSubmitOTP()">Verify</button>
             </div>
           </div>
           <div class='forms-footer'>
-            Back to <a class="auth-link" [routerLink]="['/auth/login']">Sign In</a>
+            Back to <a class="auth-link" (click)="redirectToSignIn(null)">Sign In</a>
           </div>
         </div>
       </div>
       <!-- OTP End -->
 
       <!-- Account Start -->
-      <div class='auth-forms-outer d-none'>
+      <div *ngIf="step === enumForSignupStep.ACCOUNT_CREATED" class='auth-forms-outer'>
         <div class="auth-card auth-card-otp">
           <div class='auth-titlebar'>
             <div class="auth-logo-small">
@@ -110,7 +179,7 @@
           <div class='auth-forms'>
             <p class="text-center">Your account has been created successfully!</p>
             <div class='forms-button'>
-              <button class="btn btn-primary">Go to Dashboard</button>
+              <button class="btn btn-primary" (click)="utilsService.redirectTo('/customer/dashboard')">Go to Dashboard</button>
             </div>
           </div>
         </div>

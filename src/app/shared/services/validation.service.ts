@@ -63,6 +63,8 @@ export class ValidationService {
   CONFIRM_PASSWORD_NOT_MATCHED = 'Password and Confirm password not equal.';
   PASSWORD_INVALID = 'Should contains atleast 6 characters,one upper case letter,lower case letter,digit and special character like *,@,$.'
   COUNTRY_CODE_REQUIRED = 'Country Code is required!';
+  FIRST_NAME_REQUIRED = 'First Name is required!'
+  LAST_NAME_REQUIRED = 'Last Name is required!'
 
   // Document Related Validation Messages
   DOCUMENT_REQUIRED = 'Document is required!';

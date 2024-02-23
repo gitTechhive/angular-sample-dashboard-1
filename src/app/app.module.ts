@@ -5,7 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { GoogleInitOptions, GoogleLoginProvider, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+
+const googleLoginOptions: GoogleInitOptions = {
+  oneTapEnabled: false, // default is true
+};
 
 @NgModule({
   declarations: [
@@ -29,7 +33,7 @@ import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig 
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('779331517393-thlr1pe5bidk922rukcu30gm3nfn8eba.apps.googleusercontent.com'),
+            provider: new GoogleLoginProvider('779331517393-thlr1pe5bidk922rukcu30gm3nfn8eba.apps.googleusercontent.com', googleLoginOptions),
           },
         ],
       } as SocialAuthServiceConfig,
