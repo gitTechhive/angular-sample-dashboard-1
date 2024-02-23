@@ -1,0 +1,6 @@
+export enum EnumForSignUpProcess {
+    GOOGLE_SIGNUP = 'google',
+    USER_DETAILS = 'USER_DETAILS',
+    OTP_VERIFICATION = 'OTP_VERIFICATION',
+    ACCOUNT_CREATED = 'ACCOUNT_CREATED'
+}

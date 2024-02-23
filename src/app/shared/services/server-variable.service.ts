@@ -14,7 +14,9 @@ export class ServerVariableService {
   SEND_OTP_MOBILE = this.PATH_FOR_API + 'sendOtpLoginPhoneNo';
   MOBILE_LOGIN_VERIFICATION = this.PATH_FOR_API + 'loginPhoneNo';
   LOGIN_API = this.PATH_FOR_API + 'login';
-  REGISTRATION_API = this.PATH_FOR_API + '';
+  REGISTRATION_SEND_OTP_API = this.PATH_FOR_API + 'users/sendOtp';
+  REGISTRATION_API = this.PATH_FOR_API + 'users/'
+  REGISTRATION_GOOGLE = this.PATH_FOR_API + 'users/singUpGoogle'
 
   //REFRESH TOKEN
   REFRESH_TOKEN = this.PATH_FOR_API + '';
