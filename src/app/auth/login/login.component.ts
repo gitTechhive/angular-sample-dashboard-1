@@ -1,8 +1,9 @@
 import { SocialAuthService } from '@abacritt/angularx-social-login';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Deserialize } from 'cerialize';
 import { NgOtpInputComponent } from 'ng-otp-input';
+import { Subscription } from 'rxjs';
 import { EnumForLoginMode } from 'src/app/shared/enums/EnumForLoginMode.enum';
 import { ServerVariableService } from 'src/app/shared/services/server-variable.service';
 import { UtilsService } from 'src/app/shared/services/utils.service';
@@ -12,7 +13,7 @@ import { UtilsService } from 'src/app/shared/services/utils.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   @ViewChild('ngOtpInput', { static: false}) ngOtpInputRef: ElementRef;
   @ViewChild(NgOtpInputComponent, { static: false }) ngOtpInput: NgOtpInputComponent;
@@ -58,6 +59,11 @@ export class LoginComponent implements OnInit {
   /**Array holding Country Code Data */
   countryCodeList: string[] = [];
 
+  /**Boolean for checking google login */
+  isGoogleLogin: boolean = false;
+
+  subs: Subscription;
+
   constructor(public utilsService: UtilsService, public fb: FormBuilder, public serverVariableService: ServerVariableService,
               private socialAuthService: SocialAuthService) { }
 
@@ -71,9 +77,10 @@ export class LoginComponent implements OnInit {
     this.verifyPhase = false;
 
     /**Handling google login by subscribe to get current logged in user data */
-    this.socialAuthService.authState.subscribe((user) => {
+    this.subs = this.socialAuthService.authState.subscribe((user) => {
       if(user) {
         console.log(user);
+        this.isGoogleLogin = true;
         this.onGoogleLogin(user.email, user.id)
       }
     });
@@ -319,6 +326,13 @@ export class LoginComponent implements OnInit {
       this.selectedLoginMode = this.enumForLoginMode.MOBILE_LOGIN
     }
 
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
+    if(this.isGoogleLogin) {
+      this.socialAuthService?.signOut();   
+    }
   }
 
 }
