@@ -18,6 +18,11 @@ export class ServerVariableService {
   REGISTRATION_API = this.PATH_FOR_API + 'users/'
   REGISTRATION_GOOGLE = this.PATH_FOR_API + 'users/singUpGoogle'
 
+  //FORGOT PASSWORD
+  FORGOT_PASSWORD_EMAIL_VERIFY = this.PATH_FOR_API + 'forgotPwdSendEmail';
+  FORGOT_PASSWORD_OTP_VERIFICATION = this.PATH_FOR_API + 'forgotPwdOtpVerification';
+  CHANGE_PASSWORD = this.PATH_FOR_API + 'forgotPwd';
+
   //REFRESH TOKEN
   REFRESH_TOKEN = this.PATH_FOR_API + '';
 
