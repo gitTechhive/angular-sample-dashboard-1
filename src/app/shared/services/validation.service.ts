@@ -37,8 +37,10 @@ export class ValidationService {
   PATTERN_FOR_DASH_DIGIT = '^[0-9.-]*$';
   PATTERN_FOR_ALPHABATES_AND_SPACE_AND_DASH = '^[a-zA-Z- ]*$';
   PATTERN_FOR_ALPHABATES_AND_SPACE_AND_ROUND_BRACKETS = '^([a-zA-Z()][a-zA-Z() ]*)';
+  PATTERN_FOR_NUMBER = '^[0-9]*$';
   LAB_MASTER_NAME = /.*\S.*/;
   ONLY_SPACE_NOT_ALLOW = /.*\S.*/;
+  PATTERN_FOR_EMAIL = '[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,50}';
 
   //Pattern for Password for 6 characters,one upper case letter,lower case letter,digit and special character like *,@,$. 
   PATTERN_FOR_PASSWORD = /^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,32}$/;
@@ -60,6 +62,9 @@ export class ValidationService {
   PASSWORD_NOT_MATCHED = 'Password and Confirm new password not equal.';
   CONFIRM_PASSWORD_NOT_MATCHED = 'Password and Confirm password not equal.';
   PASSWORD_INVALID = 'Should contains atleast 6 characters,one upper case letter,lower case letter,digit and special character like *,@,$.'
+  COUNTRY_CODE_REQUIRED = 'Country Code is required!';
+  FIRST_NAME_REQUIRED = 'First Name is required!'
+  LAST_NAME_REQUIRED = 'Last Name is required!'
 
   // Document Related Validation Messages
   DOCUMENT_REQUIRED = 'Document is required!';
