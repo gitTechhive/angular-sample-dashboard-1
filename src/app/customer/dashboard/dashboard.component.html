@@ -1,19 +1,24 @@
 <div class="page-content">
   <div class='content-area'>
-    <ng-container *ngIf="chartOptionsCol">
-
-      <apx-chart [series]="chartOptionsCol.series" [chart]="chartOptionsCol.chart"
-        [dataLabels]="chartOptionsCol.dataLabels" [plotOptions]="chartOptionsCol.plotOptions"
-        [responsive]="chartOptionsCol.responsive" [xaxis]="chartOptionsCol.xaxis" [legend]="chartOptionsCol.legend"
-        [fill]="chartOptionsCol.fill"></apx-chart>
-
-      <apx-chart [series]="chartOptionsBar.series" [chart]="chartOptionsBar.chart"
-        [dataLabels]="chartOptionsBar.dataLabels" [plotOptions]="chartOptionsBar.plotOptions"
-        [xaxis]="chartOptionsBar.xaxis"></apx-chart>
-
-      <apx-chart [series]="chartOptionsDonut.series" [chart]="chartOptionsDonut.chart"
-        [labels]="chartOptionsDonut.labels" [responsive]="chartOptionsDonut.responsive"></apx-chart>
-
+    <ng-container *ngIf="!utilsService.isEmptyObjectOrNullUndefined(chartData)">
+    
+      <apx-chart [series]="columnChart.series" [chart]="columnChart.chart" [dataLabels]="columnChart.dataLabels"
+        [plotOptions]="columnChart.plotOptions" [responsive]="columnChart.responsive" [xaxis]="columnChart.xaxis"
+        [legend]="columnChart.legend" [fill]="columnChart.fill">
+      </apx-chart>
+    
+      <apx-chart [series]="barChart.series" [chart]="barChart.chart" [dataLabels]="barChart.dataLabels"
+        [plotOptions]="barChart.plotOptions" [xaxis]="barChart.xaxis">
+      </apx-chart>
+    
+      <apx-chart [series]="donutChart.series" [chart]="donutChart.chart" [labels]="donutChart.labels"
+        [responsive]="donutChart.responsive">
+      </apx-chart>
+    
+      <apx-chart [series]="lineChart.series" [chart]="lineChart.chart" [xaxis]="lineChart.xaxis" [stroke]="lineChart.stroke"
+        [tooltip]="lineChart.tooltip" [dataLabels]="lineChart.dataLabels">
+      </apx-chart>
+    
     </ng-container>
   </div>
 </div>

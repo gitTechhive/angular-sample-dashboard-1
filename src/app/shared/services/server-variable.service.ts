@@ -23,6 +23,9 @@ export class ServerVariableService {
   FORGOT_PASSWORD_OTP_VERIFICATION = this.PATH_FOR_API + 'forgotPwdOtpVerification';
   CHANGE_PASSWORD = this.PATH_FOR_API + 'forgotPwd';
 
+  //DASHBOARD 
+  DASHBOARD_CHARTS_API = this.PATH_FOR_API + 'charts/';
+
   //REFRESH TOKEN
   REFRESH_TOKEN = this.PATH_FOR_API + '';
 
