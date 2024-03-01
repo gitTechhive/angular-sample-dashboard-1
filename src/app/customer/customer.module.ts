@@ -8,9 +8,12 @@ import { SharedModule } from '../shared/shared.module';
 
 /** Customer Child Routes*/
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'my-profile', component: MyProfileComponent },
+  { path: '', component: CustomerComponent, children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'my-profile', component: MyProfileComponent },
+    ]
+  }
 ]
 
 @NgModule({

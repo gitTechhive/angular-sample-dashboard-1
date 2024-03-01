@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Deserialize } from 'cerialize';
 import { ResponseWrapperDTO } from 'src/app/models/response/ResponseWrapperDTO';
 import { ServerVariableService } from './server-variable.service';
+import { ValidationService } from './validation.service';
 
 @Injectable({
   providedIn: 'root'
@@ -24,16 +25,18 @@ export class UtilsService {
 
   /**Initial configuration settings for the toast notifications*/
   toastConfig = {
-    disableTimeout: false,    
-    timeoutDuration: 10000,   
-    positionClass: 'toast-top-center',  
-    closeButtonEnabled: true 
+    disableTimeOut: false,
+    timeOut: 10000,
+    positionClass: 'toast-top-center',
+    closeButton: true,
   };
 
   /** Variable for showing loader*/
   showLoader = 0;
 
-  constructor(public http: HttpClient, public router: Router, public toasterService: ToastrService, public serverVariableService: ServerVariableService,) { }
+  constructor(public http: HttpClient, public router: Router, public toasterService: ToastrService,
+    public serverVariableService: ServerVariableService,
+    public validationService: ValidationService,) { }
 
   /**
    * Handles a POST request to an API endpoint.
@@ -119,7 +122,7 @@ export class UtilsService {
    * @param callback Response from server
    * @param noLoaderRequire Indicates whether to skip showing loader.
   */
-  getMethodAPI(apiName: any, params: any, callback: (response: any) => void, noLoaderRequire?: boolean): Subscription {
+  getMethodAPI(isDisplayToast: boolean, apiName: any, params: any, callback: (response: any) => void, noLoaderRequire?: boolean): Subscription {
     this.showLoader++;
     if (noLoaderRequire) {
       this.showLoader--;
@@ -155,6 +158,14 @@ export class UtilsService {
         // Validates successful server response status (200-299).
         // If successful, optionally displays a success toast and executes callback.
         if (!(serverResponse.status < 200 || serverResponse.status >= 300)) {
+          if (isDisplayToast) {
+            this.toasterService.success(serverResponse.message, '', {
+              positionClass: 'toast-top-right',
+              closeButton: true
+            });
+          }
+        }
+        if (serverResponse.status < 200 || serverResponse.status >= 300) {
           this.toasterService.error(serverResponse.message, '', this.toastConfig);
         }
         else {
