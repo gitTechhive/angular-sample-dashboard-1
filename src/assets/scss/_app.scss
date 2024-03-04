@@ -139,3 +139,46 @@
         }
     }
 }
+
+// Settings
+.settings-container{
+    width: 800px;
+    margin: 0 auto;
+}
+.card-settings-inner{
+    margin-bottom: 0;
+    box-shadow: none;
+
+    .card-header{
+        position: relative;
+        background-color: transparent;
+        border: 0;
+        padding: 16px;
+
+        h4{
+            color: #1A1D1F;
+            margin-bottom: 0;
+            font-size: 16px;
+            position: relative;
+            margin-left: 10px;
+
+            &::before{
+                content: '';
+                background-color: red;
+                position: absolute;
+                left: -25px;
+                top: 0;
+                bottom: 0;
+                width: 15px;
+                border-radius: 4px;
+            }
+        }
+
+        
+    }
+
+    .card-footer{
+        padding: 0;
+        border: 0;
+    }
+}

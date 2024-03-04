@@ -48,6 +48,12 @@ $vz_header_height:60px;
 
     
 }
+.layout-wrapper{
+    position: relative;
+    background-color: #F4F4F4;
+    overflow-x: hidden;
+    min-height: 100vh
+}
 
 #page-topbar {
     position: fixed;
@@ -2469,12 +2475,6 @@ $vz_header_height:60px;
     --vz-vertical-menu-sub-item-active-color: #fff;
     --vz-vertical-menu-title-color: #5f6270;
     --vz-twocolumn-menu-iconview-bg: #292e32
-}
-
-.card {
-    margin-bottom: 1.5rem;
-    -webkit-box-shadow: 0 1px 2px rgba(56, 65, 74, .15);
-    box-shadow: 0 1px 2px rgba(56, 65, 74, .15)
 }
 
 .card-header {
