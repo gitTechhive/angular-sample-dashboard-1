@@ -35,7 +35,7 @@
                   <div class="card-header">
                     <h4>My Profile</h4>
                   </div>
-                  <div class="card-body">
+                  <div class="card-body" [formGroup]="accountForm">
                     <div class="row">
                       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <div class="profile-container">
@@ -60,67 +60,125 @@
                       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                         <div class="form-group">
                           <label class="form-label">First Name</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" formControlName="first_name" [(ngModel)]="profileDetails.firstName"
+                            [maxlength]="utilsService.validationService.MAX_30">
+                          <p class="error-msg"
+                            *ngIf="accountForm.controls['first_name'].hasError('required') &&  accountForm.controls['first_name'].touched">
+                            {{utilsService.validationService.FIRST_NAME_REQUIRED}}
+                          </p>
+                          <p class="error-msg"
+                            *ngIf="!accountForm.controls['first_name'].hasError('required') && !accountForm.controls['first_name'].valid && accountForm.controls['first_name'].touched">
+                            {{utilsService.validationService.FIRST_NAME_REQUIRED}}
+                          </p>
                         </div>
                       </div>
                       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                         <div class="form-group">
                           <label class="form-label">Last Name</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" formControlName="last_name" [(ngModel)]="profileDetails.lastName"
+                            [maxlength]="utilsService.validationService.MAX_30">
+                          <p class="error-msg"
+                            *ngIf="accountForm.controls['last_name'].hasError('required') &&  accountForm.controls['last_name'].touched">
+                            {{utilsService.validationService.LAST_NAME_REQUIRED}}
+                          </p>
+                          <p class="error-msg"
+                            *ngIf="!accountForm.controls['last_name'].hasError('required') && !accountForm.controls['last_name'].valid && accountForm.controls['last_name'].touched">
+                            {{utilsService.validationService.LAST_NAME_REQUIRED}}
+                          </p>
                         </div>
                       </div>
-                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">                        
                         <div class="form-group">
-                          <label class="form-label">Email</label>
-                          <input type="email" class="form-control">
+                          <label class="form-label">Country Code</label>
+                          <div class="form-group-icon-start">
+                            <ng-select [items]="countryCodeList" bindLabel="label" bindValue="value" formControlName="country_code"
+                              [clearable]="true" class="theme-ngselect" appendTo="body" placeholder="Country Code">
+                            </ng-select>
+                          </div>
+                          <p class="error-msg"
+                            *ngIf="accountForm.controls['country_code'].hasError('required') &&  accountForm.controls['country_code'].touched">
+                            {{utilsService.validationService.COUNTRY_CODE_REQUIRED}}
+                          </p>
                         </div>
                       </div>
                       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                         <div class="form-group">
                           <label class="form-label">Phone No</label>
                           <input type="text" class="form-control">
+                          <p class="error-msg"
+                          *ngIf="accountForm.controls['mobile_no'].hasError('required') &&  accountForm.controls['mobile_no'].touched">
+                          {{utilsService.validationService.MOBILE_NUMBER_REQUIRED}}
+                        </p>
+                        <p class="error-msg"
+                          *ngIf="!accountForm.controls['mobile_no'].hasError('required') && !accountForm.controls['mobile_no'].valid && accountForm.controls['mobile_no'].touched">
+                          {{utilsService.validationService.MOBILE_NUMBER_INVALID}}
+                        </p>
+                        </div>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Email</label>
+                          <input type="email" class="form-control" formControlName="email" [(ngModel)]="profileDetails.email">
+                          <p class="error-msg"
+                            *ngIf="accountForm.controls['email'].hasError('required') &&  accountForm.controls['email'].touched">
+                            {{utilsService.validationService.EMAIL_REQUIRED}}
+                          </p>
+                          <p class="error-msg"
+                            *ngIf="!accountForm.controls['email'].hasError('required') && !accountForm.controls['email'].valid && accountForm.controls['email'].touched">
+                            {{utilsService.validationService.EMAIL_INVALID}}
+                          </p>
                         </div>
                       </div>
                       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <div class="form-group">
                           <label class="form-label">Address Line</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" formControlName="address" [(ngModel)]="profileDetails.address">
                         </div>
                       </div>
                       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                         <div class="form-group">
                           <label class="form-label">Country</label>
-                          <input type="text" class="form-control">
+                          <ng-select [items]="countryList" bindLabel="label" bindValue="value"
+                            [(ngModel)]="profileDetails.country_id" formControlName="country"
+                            (change)="onChangeCountry($event)" [clearable]="true" class="theme-ngselect"
+                            placeholder="Country">
+                          </ng-select>
                         </div>
                       </div>
                       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                         <div class="form-group">
                           <label class="form-label">State</label>
-                          <input type="text" class="form-control">
+                          <ng-select [items]="stateList" bindLabel="label" bindValue="value"
+                            [(ngModel)]="profileDetails.state_id" formControlName="state" (change)="onChangeState($event)"
+                            [clearable]="true" class="theme-ngselect" placeholder="State">
+                          </ng-select>
                         </div>
                       </div>
                       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                         <div class="form-group">
                           <label class="form-label">City</label>
-                          <input type="text" class="form-control">
+                          <ng-select [items]="cityList" bindLabel="label" bindValue="value"
+                            [(ngModel)]="profileDetails.cities_id" formControlName="city" [clearable]="true"
+                            class="theme-ngselect" placeholder="City">
+                          </ng-select>
                         </div>
                       </div>
                       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                         <div class="form-group">
                           <label class="form-label">Zip Code</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" formControlName="pin_code" [(ngModel)]="profileDetails.pinCode">
                         </div>
                       </div>
                       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <div class="form-group">
                           <label class="form-label">Bio</label>
-                          <textarea class="form-control"></textarea>
+                          <textarea class="form-control" formControlName="bio" [(ngModel)]="profileDetails.bio"></textarea>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="card-footer">
-                    <button class="btn btn-primary">Save</button>
+                    <button class="btn btn-primary" (click)="updateProfile()">Save</button>
                   </div>
                 </div>
               </div>
