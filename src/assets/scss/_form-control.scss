@@ -3,8 +3,9 @@
     position: relative;
 
     .form-label{
-        margin-bottom: 3px;
+        margin-bottom: 5px;
         font-weight: 500;
+        color: #33383F;
     }
     .form-control,
     .form-select {
@@ -96,6 +97,8 @@
         display: none;
     }
 }
+
+textarea{ height: 100px; resize: none; }
 
 // Checkbox 
 .checkbox{margin:0}

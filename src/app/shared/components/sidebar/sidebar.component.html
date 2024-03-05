@@ -37,8 +37,13 @@
     <div class="navbar-sidemenu">
       <ul class="navbar-nav" id="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link menu-link" href="widgets.html">
-            <i class="ri-honour-line"></i> <span data-key="t-widgets">Dashboard</span>
+          <a class="nav-link menu-link" routerLinkActive="active" [routerLink]="['/customer/dashboard']">
+            <i class="bi bi-house"></i><span data-key="t-widgets">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link menu-link" routerLinkActive="active" [routerLink]="['/customer/settings']">
+            <i class="bi bi-gear"></i><span data-key="t-widgets">Settings</span>
           </a>
         </li>
         <!-- <li class="menu-title"><span data-key="t-menu">Menu</span></li> -->
