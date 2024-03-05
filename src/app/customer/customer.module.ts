@@ -33,6 +33,6 @@ const routes: Routes = [
     SharedModule.forRoot(),
     RouterModule.forChild(routes)
   ],
-  declarations: [CustomerComponent, DashboardComponent, MyProfileComponent]
+  declarations: [CustomerComponent, DashboardComponent, MyProfileComponent, SettingsComponent]
 })
 export class CustomerModule { }

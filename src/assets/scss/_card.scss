@@ -4,4 +4,38 @@
     box-shadow: 0 1px 2px rgba(56, 65, 74, .15);
     border: 0;
     background-color: #FCFCFC;
+
+    .card-header{
+        h4{
+            margin-bottom: 0;
+        }
+    }
+
+    &.card-ribbon{
+        .card-header{
+            position: relative;
+            h4{
+                
+                position: relative;
+                padding-left: 25px;
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    left: 0px;
+                    top: 0;
+                    bottom: 0;
+                    background-color: $primary_color;
+                    width: 15px;
+                    border-radius: 4px;
+                }
+
+                &.ribbon-secondary{
+                    &::before{
+                        background-color: #CABDFF;
+                    }
+                }
+            }
+        }
+    }
 }

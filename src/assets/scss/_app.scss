@@ -149,36 +149,100 @@
     margin-bottom: 0;
     box-shadow: none;
 
+    .card-header, 
+    .card-body{
+        padding: 16px 0;
+    }
     .card-header{
         position: relative;
         background-color: transparent;
         border: 0;
-        padding: 16px;
 
         h4{
             color: #1A1D1F;
-            margin-bottom: 0;
-            font-size: 16px;
-            position: relative;
-            margin-left: 10px;
-
-            &::before{
-                content: '';
-                background-color: red;
-                position: absolute;
-                left: -25px;
-                top: 0;
-                bottom: 0;
-                width: 15px;
-                border-radius: 4px;
-            }
-        }
-
-        
+            font-size: 18px;
+        }        
     }
 
     .card-footer{
+        background-color: transparent;
         padding: 0;
         border: 0;
+    }
+
+    &.card-changepassword{
+        .card-header{
+            h4{
+                &::before{
+                    background-color: #CABDFF;
+                }
+            }
+        }
+    }
+    &.card-notifications{
+        .card-header{
+            h4{
+                &::before{
+                    background-color: #FFBC99;
+                }
+            }
+        }
+    }
+}
+
+.settings-row {
+    .setting-col {
+        padding: 16px 0;
+        border-bottom: 1px solid #EFEFEF;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &:nth-last-child(1) {
+            margin-bottom: 15px;
+        }
+
+        .setting-col-left {
+            flex: 0 0 calc(100% - 250px);
+            max-width: calc(100% - 250px);
+
+            h6 {
+                font-size: 14px;
+                color: #33383F;
+                margin-bottom: 0;
+            }
+
+            p {
+                margin-bottom: 0;
+            }
+        }
+
+        .setting-col-right {
+            flex: 0 0 250px;
+            max-width: 250px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+
+            .form-group {
+                margin-bottom: 0;
+                width: 100%;
+            }
+        }
+    }
+    .setting-group{
+        margin-bottom: 16px;
+        h5{
+            color: #344054;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 18px;
+        }
+        h6{
+            color: #344054;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+        }
     }
 }
