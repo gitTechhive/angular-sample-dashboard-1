@@ -1,0 +1,88 @@
+.page-title-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border-bottom: 0px solid #F2F4F7;
+    padding: 10px 10px;
+
+    .page-title-left{
+        display: flex; flex-direction: row; align-items: center;
+        h4{
+            color: #272B30;
+            margin-bottom: 0px;
+            font-size: 16px;
+        }
+        p{
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .btn-back{
+            height: 30px;
+            width: 30px;
+            background-color: $white_color;
+            border: 1px solid #EAECF0;
+            color: $primary_color;
+            border-radius: 50%;
+            padding: 0;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px; 
+
+            &:hover{
+                background-color: $primary_color;
+                border: 1px solid $primary_color;
+                color: $white_color;
+            }
+        }
+    }
+    .page-title-right{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+
+        .form-group {
+            margin-bottom: 0;
+            min-width: 150px;
+        }
+    }
+}
+
+.page-tabs-box{
+    background-color: $white_color;
+    border-bottom: 1px solid #EAECF0;
+    .nav-tabs{
+        border: 0;
+        margin: 0 15px;
+        .nav-item{
+            .nav-link{
+                color: #667085;
+                border: 0;
+                padding: 10px 10px;
+                position: relative;
+
+                i{
+                    margin-right: 4px;
+                }
+
+                &.active{
+                    color: $primary_color;
+
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        height: 2px;
+                        background-color: $primary_color;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+}

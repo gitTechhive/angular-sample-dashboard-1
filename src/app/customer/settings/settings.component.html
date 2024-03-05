@@ -1,0 +1,235 @@
+<div class="page-content">
+  <div class="page-title-container">
+    <div class="page-title-left">
+      <h4>Settings</h4>
+    </div>
+    <div class="page-title-right">
+    </div>
+  </div>
+  <div class='content-area'>
+    <div class="settings-container">
+      <div class="card card-settings">
+        <div class="card-body">
+          <div class="nav-tabs-container nav-tabs-style3">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="myprofile-tab" data-bs-toggle="tab"
+                  data-bs-target="#myprofile-tab-pane" type="button" role="tab" aria-controls="myprofile-tab-pane"
+                  aria-selected="true">My Profile</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="changepassword-tab" data-bs-toggle="tab"
+                  data-bs-target="#changepassword-tab-pane" type="button" role="tab"
+                  aria-controls="changepassword-tab-pane" aria-selected="false">Change Password</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="notifications-tab" data-bs-toggle="tab"
+                  data-bs-target="#notifications-tab-pane" type="button" role="tab"
+                  aria-controls="notifications-tab-pane" aria-selected="false">Notifications</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="myprofile-tab-pane" role="tabpanel"
+                aria-labelledby="myprofile-tab" tabindex="0">
+                <div class="card card-settings-inner card-ribbon card-myprofile">
+                  <div class="card-header">
+                    <h4>My Profile</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="profile-container">
+                          <div class="profile-image">
+                            <img src="assets/images/avatar-default.svg" alt="ortfolio - Angular" />
+                          </div>
+                          <div class="profile-content">
+                            <h6>Profile</h6>
+                            <p>Update your profile picture <i class="bi bi-info-circle-fill ms-1" ngbTooltip="Maximum File Size 5 MB, Only
+                              JPG, JPEG and PNG images allowed" placement="bottom" container="body"
+                                triggers="hover"></i></p>
+                            <div class="button-group mt-2 mb-2">
+                              <button class="btn btn-primary btn-icon-text btn-sm btn-fileupload">
+                                <i class="bi bi-plus"></i>Upload new picture
+                                <input type="file" accept="image/x-png,image/jpeg,image/jpg" />
+                              </button>
+                              <button class="btn btn-white btn-sm">Remove</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">First Name</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Last Name</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Email</label>
+                          <input type="email" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Phone No</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Address Line</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Country</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">State</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">City</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Zip Code</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Bio</label>
+                          <textarea class="form-control"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <button class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="changepassword-tab-pane" role="tabpanel"
+                aria-labelledby="changepassword-tab" tabindex="0">
+                <div class="card card-settings-inner card-ribbon card-changepassword">
+                  <div class="card-header">
+                    <h4>Change Password</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12">
+                        <div class="form-group">
+                          <label class="form-label">Old Password</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label">New password</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label">Confirm new password</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <button class="btn btn-primary">Update Password</button>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="notifications-tab-pane" role="tabpanel" aria-labelledby="notifications-tab"
+                tabindex="0">
+                <div class="card card-settings-inner card-ribbon card- ">
+                  <div class="card-header">
+                    <h4>Notifications</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="settings-row">
+                      <div class="setting-col">
+
+                        <div class="setting-col-left">
+                          <h6>Product updates and community announcements<button class="btn btn-icon ms-2"
+                              ngbTooltip="Announcements" placement="bottom" container="body" triggers="hover"><i
+                                class="bi bi-info-circle-fill"></i>
+                            </button></h6>
+                        </div>
+                        <div class="setting-col-right">
+                          <div class="switch-box">
+                            <label class="switch" htmlFor="notificationsettings1">
+                              <input type="checkbox" id="notificationsettings1" checked />
+                              <div class="slider round"></div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="setting-col">
+                        <div class="setting-col-left">
+                          <h6>Market newsletter</h6>
+                        </div>
+                        <div class="setting-col-right">
+                          <div class="switch-box">
+                            <label class="switch" htmlFor="notificationsettings2">
+                              <input type="checkbox" id="notificationsettings2" />
+                              <div class="slider round"></div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="setting-col">
+                        <div class="setting-col-left">
+                          <h6>Comments</h6>
+                        </div>
+                        <div class="setting-col-right">
+                          <div class="switch-box">
+                            <label class="switch" htmlFor="notificationsettings3">
+                              <input type="checkbox" id="notificationsettings3" checked />
+                              <div class="slider round"></div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="setting-col">
+                        <div class="setting-col-left">
+                          <h6>Purchases</h6>
+                        </div>
+                        <div class="setting-col-right">
+                          <div class="switch-box">
+                            <label class="switch" htmlFor="notificationsettings4">
+                              <input type="checkbox" id="notificationsettings4" />
+                              <div class="slider round"></div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <button class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
