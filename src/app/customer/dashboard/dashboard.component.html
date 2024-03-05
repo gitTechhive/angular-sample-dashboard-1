@@ -1,14 +1,137 @@
 <div class="page-content">
-  <div class="page-title-container">
-    <div class="page-title-left">
-      <h4>Page Header</h4>
+  <div class="dashboard-welcome">
+    <div class="dashboard-welcome-left">
+      <h6>Good Morning, Anna!</h6>
+      <p>Here's what's happening with your store today.</p>
     </div>
-    <div class="page-title-right">
+    <div class="dashboard-welcome-right">
+      <div class="form-group form-group-sm">
+        <input type="date" class="form-control form-control-sm">
+      </div>
+      <button class="btn btn-white btn-sm btn-icon-text"><i class="bi bi-funnel"></i>Filters</button>
     </div>
   </div>
   <div class='content-area'>
-    <p>
-      dashboard works!
-    </p>
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        <div class="card card-ribbon card-dashboard-chart card-dashboard-left1 card-flex-layout">
+          <div class="card-header">
+            <h4>Active customers</h4>
+            <div class="card-header-right">
+              <div class="form-group form-group-sm">
+                <select class="form-control form-control-sm">
+                  <option>Last 7 days</option>
+                  <option>Last 30 days</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="dashboard-chart-container">
+              <img src="assets/images/chart1.svg" alt="ortfolio - Angular" />
+            </div>
+          </div>
+        </div>
+        <div class="card card-ribbon card-dashboard-chart card-dashboard-left2 card-flex-layout">
+          <div class="card-header">
+            <h4>Traffic channel</h4>
+            <div class="card-header-right">
+              <div class="form-group form-group-sm">
+                <select class="form-control form-control-sm">
+                  <option>Last 7 days</option>
+                  <option>Last 30 days</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="dashboard-chart-container">
+              <img src="assets/images/chart2.svg" alt="ortfolio - Angular" />
+            </div>
+          </div>
+        </div>
+        <div class="card card-ribbon card-dashboard-chart card-dashboard-left3 card-flex-layout">
+          <div class="card-header">
+            <h4>Product sales</h4>
+            <div class="card-header-right">
+              <div class="nav-tabs-container nav-tabs-style3">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="thismonth-tab" data-bs-toggle="tab"
+                      data-bs-target="#thismonth-tab-pane" type="button" role="tab" aria-controls="thismonth-tab-pane"
+                      aria-selected="true">This Month</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="alltime-tab" data-bs-toggle="tab" data-bs-target="#alltime-tab-pane"
+                      type="button" role="tab" aria-controls="alltime-tab-pane" aria-selected="false">All Time</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="lastdays-tab" data-bs-toggle="tab" data-bs-target="#lastdays-tab-pane"
+                      type="button" role="tab" aria-controls="lastdays-tab-pane" aria-selected="false">Last 7
+                      Days</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="nav-tabs-container">
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="thismonth-tab-pane" role="tabpanel"
+                  aria-labelledby="thismonth-tab" tabindex="0">
+                  <div class="dashboard-chart-container">
+                    <img src="assets/images/chart3.svg" alt="ortfolio - Angular" />
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="alltime-tab-pane" role="tabpanel" aria-labelledby="alltime-tab"
+                  tabindex="0">
+                  <div class="dashboard-chart-container">
+                    <img src="assets/images/chart3.svg" alt="ortfolio - Angular" />
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="lastdays-tab-pane" role="tabpanel" aria-labelledby="lastdays-tab"
+                  tabindex="0">
+                  <div class="dashboard-chart-container">
+                    <img src="assets/images/chart3.svg" alt="ortfolio - Angular" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <div class="card card-ribbon card-dashboard-chart card-dashboard-right1">
+          <div class="card-header">
+            <h4>Top device</h4>
+          </div>
+          <div class="card-body">
+            <div class="dashboard-chart-container">
+              <img src="assets/images/chart-top-device.svg" alt="ortfolio - Angular" />
+            </div>
+          </div>
+        </div>
+        <div class="card card-ribbon card-dashboard-chart card-dashboard-right2">
+          <div class="card-header">
+            <h4>Top country</h4>
+          </div>
+          <div class="card-body">
+            <div class="dashboard-chart-container">
+              <img src="assets/images/chart-top-country.svg" alt="ortfolio - Angular" />
+            </div>
+          </div>
+        </div>
+        <div class="card card-ribbon card-dashboard-chart card-dashboard-right3">
+          <div class="card-header">
+            <h4>New customer</h4>
+          </div>
+          <div class="card-body">
+            <div class="dashboard-chart-container">
+              <img src="assets/images/chart-new-customer.svg" alt="ortfolio - Angular" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

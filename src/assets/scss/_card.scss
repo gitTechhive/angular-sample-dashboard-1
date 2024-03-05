@@ -6,9 +6,16 @@
     background-color: #FCFCFC;
 
     .card-header{
+        background-color: transparent;
         h4{
+            color: #1A1D1F;
+            font-size: 18px;
             margin-bottom: 0;
         }
+    }
+
+    .card-header, .card-body{
+        padding: 15px;
     }
 
     &.card-ribbon{
@@ -34,6 +41,26 @@
                     &::before{
                         background-color: #CABDFF;
                     }
+                }
+            }
+        }
+    }
+    &.card-flex-layout{
+        .card-header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: self-start;
+
+            .card-header-right{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 8px;
+
+                .form-group {
+                    margin-bottom: 0;
+                    min-width: 100px;
                 }
             }
         }

@@ -162,3 +162,13 @@ textarea{ height: 100px; resize: none; }
 .switch-box.switch-notallowed .slider{cursor:not-allowed}
 .switch-box.switch-box-warning input:checked+.slider{background-color:$warning_color}
 .switch-box.switch-box-danger input:checked+.slider{background-color:$danger_color}
+
+.page-content{
+    .form-group{
+        .form-control,
+        .form-select {
+            background-color: $white_color;
+            border-color: #6F767E66;
+        }
+    }
+}
