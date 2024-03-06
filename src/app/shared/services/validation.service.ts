@@ -54,8 +54,11 @@ export class ValidationService {
   EMAIL_INVALID = 'Please enter valid Email.';
   PHONE_NUMBER_REQUIRED = 'Phone Number is required!';
   PHONE_NUMBER_INVALID = 'Please enter valid Phone Number.';
+  MOBILE_NUMBER_REQUIRED = 'Mobile No. is required!';
+  MOBILE_NUMBER_INVALID = 'Please enter valid Mobile No.';
   PASSWORD_REQUIRED = 'Password is required!';
   CURRENT_PASSWORD_REQUIRED = 'Current Password is required!';
+  OLD_PASSWORD_REQUIRED = 'Old Password is required!';
   NEW_PASSWORD_REQUIRED = 'New Password is required!';
   CONFIRM_PASSWORD_REQUIRED = 'Confirm Password is required!';
   CONFIRM_NEW_PASSWORD_REQUIRED = 'Confirm New Password is required!';

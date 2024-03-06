@@ -26,10 +26,18 @@ export class ServerVariableService {
   //DASHBOARD 
   DASHBOARD_CHARTS_API = this.PATH_FOR_API + 'charts/';
 
+  //SETTINGS
+  GET_PROFILE_DETAILS = this.PATH_FOR_API + 'users/getUserData';
+  UPDATE_PROFILE = this.PATH_FOR_API + 'users/updateUser';
+  UPDATE_PROFILE_PASSWORD = this.PATH_FOR_API + 'changePwd'
+
   //REFRESH TOKEN
   REFRESH_TOKEN = this.PATH_FOR_API + '';
 
   //DROPDOWN
   COUNTRY_CODE_DROPDOWN = this.PATH_FOR_API + 'master/CountriesDropdownFlag'
+  COUNTRIES_DROPDOWN = this.PATH_FOR_API + 'master/countriesDropdown'
+  STATES_DROPDOWN = this.PATH_FOR_API + 'master/StatesDropdown'
+  CITIES_DROPDOWN = this.PATH_FOR_API + 'master/citiesDropdown'
 
 }

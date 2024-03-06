@@ -15,6 +15,8 @@ export class AppComponent {
   constructor(public utilsService: UtilsService, public cd: ChangeDetectorRef, private router: Router) {}
 
   ngOnInit(): void {
+
+    const userData = JSON.parse(localStorage.getItem('userData'));
     
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
@@ -22,6 +24,11 @@ export class AppComponent {
       }
       window.scrollTo(0, 0)
     });
+
+    if(userData){
+      this.utilsService.username = `${userData.first_name} ${userData.last_name}`;
+      this.utilsService.userProfilePicture = userData.profile_pic_url;
+    }
     
   }
 }
