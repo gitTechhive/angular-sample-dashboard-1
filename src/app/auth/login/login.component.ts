@@ -276,7 +276,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     const promise = new Promise((resolve, reject) => {
       try {
-        this.utilsService.username = `${loginResponse.first_name} ${loginResponse.last_name}`;
+        this.utilsService.username = `${loginResponse.firstName} ${loginResponse.lastName}`;
         this.utilsService.userProfilePicture = loginResponse.profile_pic_url;
         this.utilsService.storeDataLocally('userData', JSON.stringify(loginResponse));
         this.utilsService.storeDataLocally('token', token);
