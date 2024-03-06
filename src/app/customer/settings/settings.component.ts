@@ -21,14 +21,27 @@ export class SettingsComponent implements OnInit {
   selectedProfilePic: File = null;
   profile_url: any;
 
+  /** Array holding data for countries.*/
   countryList = new Array();
+
+  /** Array holding data for states.*/
   stateList = new Array();
+
+  /** Array holding data for cities.*/
   cityList = new Array();
+
+  /**Array holding data for country codes.*/
   countryCodeList = new Array();
 
+  /** Object containing user profile details.*/
   profileDetails = new UserMaster();
-  accountForm: FormGroup; 
+
+  /**FormGroup for managing account details.*/
+  accountForm: FormGroup;
+
+  /**FormGroup for managing password details.*/
   passwordForm: FormGroup;
+
 
   constructor(public utilsService: UtilsService, public fb: FormBuilder, public serverVariableService: ServerVariableService,) { }
 
@@ -36,7 +49,6 @@ export class SettingsComponent implements OnInit {
 
     this.getProfileDetails();
     this.accountFormGroup();
-
     this.getMobileCountryCode();
     this.getCountry();
 
@@ -47,6 +59,7 @@ export class SettingsComponent implements OnInit {
     }, { validators: this.checkPasswords })
   }
 
+  /**Retreiving Profile Details Method */
   getProfileDetails() {
 
     const param = {}
@@ -70,6 +83,7 @@ export class SettingsComponent implements OnInit {
 
   }
 
+  /** Method containing account form group  */
   accountFormGroup() {
     this.accountForm = this.fb.group({
       first_name: ['', Validators.compose([Validators.required, Validators.pattern(this.utilsService.validationService.ONLY_SPACE_NOT_ALLOW)])],
@@ -77,17 +91,16 @@ export class SettingsComponent implements OnInit {
       mobile_no: ['', Validators.compose([Validators.required, Validators.pattern(this.utilsService.validationService.PATTERN_FOR_NUMBER)])],
       email: ['', Validators.compose([Validators.required, Validators.pattern(this.utilsService.validationService.PATTERN_FOR_EMAIL)])],
       address: ['', Validators.compose([Validators.required, Validators.pattern(this.utilsService.validationService.ONLY_SPACE_NOT_ALLOW)])],
-      country: ['', Validators.compose([Validators.required])],
-      city: ['', Validators.compose([Validators.required])],
-      state: ['', Validators.compose([Validators.required])],
-      pin_code: ['', Validators.compose([Validators.required])],
+      country: [''],
+      city: [''],
+      state: [''],
+      pin_code: [''],
       country_code: [null, Validators.compose([Validators.required])],
-      bio: ['', Validators.compose([Validators.required])],
+      bio: [''],
     })
   }
 
-  // City, Country, State
-
+  /** Retrieves the list of countries from the server and populates the countryList array.*/
   getCountry() {
 
     const param = {};
@@ -99,6 +112,10 @@ export class SettingsComponent implements OnInit {
 
   }
   
+  /**
+   * Retrieves the list of states for a given country ID from the server and populates the stateList array.
+   * @param id - The ID of the country for which states are to be retrieved.
+  */
   getCountryState(id) {
 
     const param = {
@@ -114,6 +131,10 @@ export class SettingsComponent implements OnInit {
 
   }
 
+  /**
+   * Retrieves the list of cities for a given state ID from the server and populates the cityList array.
+   * @param id - The ID of the state for which cities are to be retrieved.
+  */
   getCityByState(id) {
 
     const param = {
@@ -129,6 +150,7 @@ export class SettingsComponent implements OnInit {
 
   }
 
+  /**On Change method if country changed */
   onChangeCountry(obj: any) {
 
     this.profileDetails.state_id = null;
@@ -142,6 +164,7 @@ export class SettingsComponent implements OnInit {
     this.getCountryState(obj.value);
   }
 
+  /**On Change method if state changed */
   onChangeState(obj: any) {
 
     this.profileDetails.cities_id = null;
@@ -153,7 +176,16 @@ export class SettingsComponent implements OnInit {
     this.getCityByState(obj.value);
   }
 
+  /**
+   * Updates the user profile information including profile picture.
+   * Handles successful profile update by refreshing profile details and updating local storage.
+   */
   updateProfile() {
+
+    if(this.accountForm.invalid) {
+      this.accountForm.markAllAsTouched();
+      return;
+    }
 
     const formData = new FormData();
 
@@ -189,6 +221,19 @@ export class SettingsComponent implements OnInit {
 
   }
 
+  /** Method to remove profile */
+  profilePicDelete() {
+
+    this.profilePic.nativeElement.value = "";
+    this.profileDetails.profilePicUrl = null;
+    this.flagForInvalidExtension = false;
+    this.flagForInvalidDocSize = false;
+    this.filenameForuserProfile = '';
+    this.selectedProfilePic = null;
+    this.profile_url = null;
+  }
+
+  /**Method to select profile */
   onSelectProfile(event): void {
 
     if (event.target.files && event.target.files[0]) {
@@ -226,13 +271,27 @@ export class SettingsComponent implements OnInit {
     }
   }
 
+  /**
+   * Initializes the form for setting a new password.
+   * It sets up form controls for password and confirm password fields
+   * along with necessary validators.
+   */
   checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => {
     let password = group.get('password').value;
     let confirm_password = group.get('confirm_password').value
     return password === confirm_password ? null : { confirmed_check: true }
   }
 
+  /**
+   * Function to handle password change.
+   * It validates the password form and sends a request to change the password.
+   */
   changePassword() {
+
+    if(this.passwordForm.invalid) {
+      this.passwordForm.markAllAsTouched();
+      return;
+    }
 
     const passwordForm = this.passwordForm.value;
 
@@ -250,6 +309,7 @@ export class SettingsComponent implements OnInit {
 
   }
 
+  /** Function to get Country Code Dropdown */
   getMobileCountryCode() {
 
     const param = {};

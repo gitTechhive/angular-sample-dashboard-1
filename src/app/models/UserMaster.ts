@@ -26,21 +26,21 @@ export class UserMaster {
     @deserializeAs('bio')
     private _bio: string;
 
-    @serializeAs('phoneCode')
-    @deserializeAs('phoneCode')
-    private _phoneCode: string;
+    @serializeAs('phonecode')
+    @deserializeAs('phonecode')
+    private _phonecode: any;
 
     @serializeAs('country_id')
     @deserializeAs('country_id')
-    private _country_id: string;
+    private _country_id: any;
 
     @serializeAs('state_id')
     @deserializeAs('state_id')
-    private _state_id: string;
+    private _state_id: any;
 
     @serializeAs('cities_id')
     @deserializeAs('cities_id')
-    private _cities_id: string;
+    private _cities_id: any;
 
     @serializeAs('profilePicUrl')
     @deserializeAs('profilePicUrl')
@@ -50,25 +50,11 @@ export class UserMaster {
     @deserializeAs('email')
     private _email: any;
 
+    @serializeAs('mobileNo')
+    @deserializeAs('mobileNo')
+    private _mobileNo: any;
+
     constructor() {}
-
-
-    /**
-     * Getter email
-     * @return {any}
-     */
-	public get email(): any {
-		return this._email;
-	}
-
-    /**
-     * Setter email
-     * @param {any} value
-     */
-	public set email(value: any) {
-		this._email = value;
-	}
-
 
 
     /**
@@ -120,34 +106,34 @@ export class UserMaster {
 	}
 
     /**
-     * Getter phoneCode
-     * @return {string}
+     * Getter phonecode
+     * @return {any}
      */
-	public get phoneCode(): string {
-		return this._phoneCode;
+	public get phonecode(): any {
+		return this._phonecode;
 	}
 
     /**
      * Getter country_id
-     * @return {string}
+     * @return {any}
      */
-	public get country_id(): string {
+	public get country_id(): any {
 		return this._country_id;
 	}
 
     /**
      * Getter state_id
-     * @return {string}
+     * @return {any}
      */
-	public get state_id(): string {
+	public get state_id(): any {
 		return this._state_id;
 	}
 
     /**
      * Getter cities_id
-     * @return {string}
+     * @return {any}
      */
-	public get cities_id(): string {
+	public get cities_id(): any {
 		return this._cities_id;
 	}
 
@@ -157,6 +143,22 @@ export class UserMaster {
      */
 	public get profilePicUrl(): any {
 		return this._profilePicUrl;
+	}
+
+    /**
+     * Getter email
+     * @return {any}
+     */
+	public get email(): any {
+		return this._email;
+	}
+
+    /**
+     * Getter mobileNo
+     * @return {any}
+     */
+	public get mobileNo(): any {
+		return this._mobileNo;
 	}
 
     /**
@@ -208,34 +210,34 @@ export class UserMaster {
 	}
 
     /**
-     * Setter phoneCode
-     * @param {string} value
+     * Setter phonecode
+     * @param {any} value
      */
-	public set phoneCode(value: string) {
-		this._phoneCode = value;
+	public set phonecode(value: any) {
+		this._phonecode = value;
 	}
 
     /**
      * Setter country_id
-     * @param {string} value
+     * @param {any} value
      */
-	public set country_id(value: string) {
+	public set country_id(value: any) {
 		this._country_id = value;
 	}
 
     /**
      * Setter state_id
-     * @param {string} value
+     * @param {any} value
      */
-	public set state_id(value: string) {
+	public set state_id(value: any) {
 		this._state_id = value;
 	}
 
     /**
      * Setter cities_id
-     * @param {string} value
+     * @param {any} value
      */
-	public set cities_id(value: string) {
+	public set cities_id(value: any) {
 		this._cities_id = value;
 	}
 
@@ -246,6 +248,25 @@ export class UserMaster {
 	public set profilePicUrl(value: any) {
 		this._profilePicUrl = value;
 	}
+
+    /**
+     * Setter email
+     * @param {any} value
+     */
+	public set email(value: any) {
+		this._email = value;
+	}
+
+    /**
+     * Setter mobileNo
+     * @param {any} value
+     */
+	public set mobileNo(value: any) {
+		this._mobileNo = value;
+	}
+
+
+
 
 
 }
