@@ -90,12 +90,12 @@ export class SettingsComponent implements OnInit {
       last_name: ['', Validators.compose([Validators.required, Validators.pattern(this.utilsService.validationService.ONLY_SPACE_NOT_ALLOW)])],
       mobile_no: ['', Validators.compose([Validators.required, Validators.pattern(this.utilsService.validationService.PATTERN_FOR_NUMBER)])],
       email: ['', Validators.compose([Validators.required, Validators.pattern(this.utilsService.validationService.PATTERN_FOR_EMAIL)])],
-      address: ['', Validators.compose([Validators.required, Validators.pattern(this.utilsService.validationService.ONLY_SPACE_NOT_ALLOW)])],
+      country_code: [null, Validators.compose([Validators.required])],
+      address: [''],
       country: [''],
       city: [''],
       state: [''],
       pin_code: [''],
-      country_code: [null, Validators.compose([Validators.required])],
       bio: [''],
     })
   }
