@@ -107,7 +107,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       hiddenCaptcha: this.captchaInput
     }
 
-    this.utilsService.getMethodAPI(true, this.utilsService.serverVariableService.CAPTCHA_VERIFICATION, param, (response) => {
+    this.utilsService.postMethodAPI(true, this.utilsService.serverVariableService.CAPTCHA_VERIFICATION, param, (response) => {
       if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
         this.captchaInput = null;
       }
@@ -123,7 +123,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       uuId: this.captchaUUID,
     }
 
-    this.utilsService.getMethodAPI(true, this.utilsService.serverVariableService.CAPTCHA_REGENERATE, param, (response) => {
+    this.utilsService.postMethodAPI(true, this.utilsService.serverVariableService.CAPTCHA_REGENERATE, param, (response) => {
       if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
         this.captchaUUID = response.uuid
         this.captchaImage = response.realCaptcha

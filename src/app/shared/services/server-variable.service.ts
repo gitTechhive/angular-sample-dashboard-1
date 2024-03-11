@@ -19,8 +19,8 @@ export class ServerVariableService {
   REGISTRATION_GOOGLE = this.PATH_FOR_API + 'users/singUpGoogle'
 
   //FORGOT PASSWORD
-  FORGOT_PASSWORD_EMAIL_VERIFY = this.PATH_FOR_API + 'forgotPwdSendEmail';
-  FORGOT_PASSWORD_OTP_VERIFICATION = this.PATH_FOR_API + 'forgotPwdOtpVerification';
+  FORGOT_PASSWORD_EMAIL_VERIFY = this.PATH_FOR_API + 'forgotPassOtpGeneratorAdmin';
+  FORGOT_PASSWORD_OTP_VERIFICATION = this.PATH_FOR_API + 'forgotPassOtpVerificationAdmin';
   CHANGE_PASSWORD = this.PATH_FOR_API + 'forgotPwd';
 
   //DASHBOARD 
@@ -35,7 +35,7 @@ export class ServerVariableService {
   REFRESH_TOKEN = this.PATH_FOR_API + '';
 
   //DROPDOWN
-  COUNTRY_CODE_DROPDOWN = this.PATH_FOR_API + 'master/CountriesDropdownFlag'
+  COUNTRY_CODE_DROPDOWN = this.PATH_FOR_API + 'master/countryCodes'
   COUNTRIES_DROPDOWN = this.PATH_FOR_API + 'master/countriesDropdown'
   STATES_DROPDOWN = this.PATH_FOR_API + 'master/StatesDropdown'
   CITIES_DROPDOWN = this.PATH_FOR_API + 'master/citiesDropdown'
