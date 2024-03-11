@@ -170,6 +170,53 @@
         }
     }
 }
+.card-statistics{
+    border: 1px solid #EFEFEF;
+    .card-body{
+        padding: 12px;
+    }
+
+    .card-top-container{
+        display: flex; flex-direction: row;
+        align-items: center;
+
+        .card-icon{
+            height: 34px;
+            width: 34px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #EFEFEF;
+            color: #101828;
+            margin-right: 8px;  
+            font-size: 16px; 
+            -webkit-text-stroke: 0.5px;         
+        }
+        h3{
+            font-size: 14px;
+            margin-bottom: 0;
+            color: #101828;
+            font-weight: 500;
+        }
+    }
+    .card-details-container{
+        margin-top: 20px;
+        display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+        .card-details-number{
+            h4{
+                color: $black_color;
+                margin-bottom: 0;
+                font-size: 17px;
+
+                sup{
+                    margin-left: 10px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
 .card-dashboard-chart{
     .card-body{
         min-height: 260px;
@@ -206,6 +253,9 @@
                 font-weight: 500;
             }
         }
+    }
+    .dashboard-chart-container{
+        text-align: center;
     }
 }
 
