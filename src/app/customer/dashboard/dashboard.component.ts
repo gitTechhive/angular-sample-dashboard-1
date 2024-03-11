@@ -20,6 +20,8 @@ export class DashboardComponent implements OnInit {
   barChart: any;
   /**Variable to Store Donut Chart data */
   donutChart: any;
+  /**Variable to Store Vertical Bar Chart data */
+  verticalBarChart: any;
 
   constructor(public utilsService: UtilsService, private serverVariableService: ServerVariableService) {
 
@@ -47,10 +49,11 @@ export class DashboardComponent implements OnInit {
           };
         });
 
-        this.columnChart = this.chartData.filter(v => v.chartType === 'columnChart')[0].value
-        this.lineChart = this.chartData.filter(v => v.chartType === 'lineChart')[0].value
-        this.barChart = this.chartData.filter(v => v.chartType === 'barChart')[0].value
+        this.columnChart = this.chartData.filter(v => v.chartType === 'columnChart')[0]?.value
+        this.lineChart = this.chartData.filter(v => v.chartType === 'lineChart')[0]?.value
+        this.barChart = this.chartData.filter(v => v.chartType === 'barChart')[0]?.value
         this.donutChart = this.chartData.filter(v => v.chartType.trim() === 'donutChart')[0]?.value
+        this.verticalBarChart = this.chartData.filter(v => v.chartType.trim() === 'donutChart')[0]?.value
       }
     })
   }
