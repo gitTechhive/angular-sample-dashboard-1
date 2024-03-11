@@ -4,16 +4,6 @@
       <!-- Login Start -->
       <div *ngIf="!verifyPhase" class='auth-forms-outer'>
         <div class="auth-card">
-          <div>
-            <img [src]="captchaImage" alt="test">
-            <div class="form-group-icon-start">
-              <input type="email" class="form-control" placeholder="Your Captcha" [(ngModel)]="captchaInput"/>
-              <div>
-                <button class="btn btn-primary" (click)="captchaVerification()">Verify</button>
-                <button class="btn btn-primary" (click)="captchaRegenertion()">Regenerate</button>
-              </div>
-            </div>
-          </div>
           <div class='auth-titlebar'>
             <div class="auth-logo-small">
               <img src="assets/images/auth-logo-small.svg" alt="Portfolio - Angular">
@@ -22,17 +12,18 @@
             <div class="nav-tabs-container nav-tabs-auth">
               <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" [ngClass]="{ 'active': selectedLoginMode === enumForLoginMode.EMAIL_PASSWORD}"
+                  <button class="nav-link"
+                    [ngClass]="{ 'active': selectedLoginMode === enumForLoginMode.EMAIL_PASSWORD}"
                     (click)="onChangeLoginMode(enumForLoginMode.EMAIL_PASSWORD)" id="email-tab" data-bs-toggle="tab"
-                    data-bs-target="#email-tab-pane" type="button" role="tab" aria-controls="email-tab-pane" aria-selected="true"><i
-                      class="bi bi-envelope-fill"></i>Email
+                    data-bs-target="#email-tab-pane" type="button" role="tab" aria-controls="email-tab-pane"
+                    aria-selected="true"><i class="bi bi-envelope-fill"></i>Email
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
                   <button class="nav-link" [ngClass]="{ 'active': selectedLoginMode === enumForLoginMode.MOBILE_LOGIN}"
                     (click)="onChangeLoginMode(enumForLoginMode.MOBILE_LOGIN)" id="mobile-tab" data-bs-toggle="tab"
-                    data-bs-target="#mobile-tab-pane" type="button" role="tab" aria-controls="mobile-tab-pane" aria-selected="false"><i
-                      class="bi bi-telephone"></i>Mobile
+                    data-bs-target="#mobile-tab-pane" type="button" role="tab" aria-controls="mobile-tab-pane"
+                    aria-selected="false"><i class="bi bi-telephone"></i>Mobile
                   </button>
                 </li>
               </ul>
@@ -40,8 +31,8 @@
           </div>
           <div class="nav-tabs-container">
             <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade" id="email-tab-pane" role="tabpanel" aria-labelledby="email-tab" [ngClass]="{ 'show active': selectedLoginMode === enumForLoginMode.EMAIL_PASSWORD}"
-                tabindex="0">
+              <div class="tab-pane fade" id="email-tab-pane" role="tabpanel" aria-labelledby="email-tab"
+                [ngClass]="{ 'show active': selectedLoginMode === enumForLoginMode.EMAIL_PASSWORD}" tabindex="0">
                 <div class='auth-forms' [formGroup]="loginFormGroup">
                   <h6>Continue with email address</h6>
                   <div class="form-group">
@@ -62,8 +53,8 @@
                   <div class="form-group">
                     <div class="form-group-icon-start form-group-password">
                       <div class="control-icon"><i class="bi bi-lock"></i></div>
-                      <input [type]="flagForPasswordHideShow? 'password' : 'text'" class="form-control" placeholder="Password"
-                        formControlName="password" (keyup.enter)="onEmailPasswordLogin()" />
+                      <input [type]="flagForPasswordHideShow? 'password' : 'text'" class="form-control"
+                        placeholder="Password" formControlName="password" (keyup.enter)="onEmailPasswordLogin()" />
                       <button class="btn btn-password" (click)="flagForPasswordHideShow = !flagForPasswordHideShow">
                         <!-- <i class="bi bi-eye"></i> -->
                         <i class="bi bi-eye"
@@ -77,27 +68,53 @@
                       {{utilsService.validationService.PASSWORD_REQUIRED}}
                     </p>
                   </div>
+                  <div class="form-group-captcha">
+                    <div class="captcha-image">
+                      <img [src]="captchaImage" alt="Captcha Code">
+                      <div class="button-group">
+                        <button class="btn btn-link-button btn-sm" (click)="captchaRegenertion()">Regenerate</button>
+                      </div>
+                    </div>
+                    <div class="captcha-control">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Captcha" [(ngModel)]="captchaInput" />
+                      </div>
+                      <div class="button-group">
+                        <button class="btn btn-primary btn-sm" (click)="captchaVerification()">Verify</button>
+                      </div>
+                    </div>
+                  </div>
                   <div class="forms-forgot-rememberme">
+                    <!-- <div class="forms-rememberme">
+                      <div class="checkbox checkbox-primary checkbox-small">
+                        <input type="checkbox" id="rememberme" class="material-inputs
+                          filled-in" />
+                        <label for="rememberme">Remember Me</label>
+                      </div>
+                    </div> -->
+                    <div></div>
                     <div class="forms-forgot">
                       <a class="text-primary" [routerLink]="['/auth/forgot-password']">Forgot Password?</a>
                     </div>
                   </div>
                   <div class='forms-button'>
                     <button class="btn btn-primary" (click)="onEmailPasswordLogin()">Continue</button>
-                    <asl-google-signin-button text="signin_with" type='standard' size='large'></asl-google-signin-button>
+                    <asl-google-signin-button text="signin_with" type='standard'
+                      size='large'></asl-google-signin-button>
                     <!-- <button class="btn btn-google"><img src="assets/images/google.svg"
                         alt="Portfolio - Angular">Google</button> -->
                   </div>
                 </div>
               </div>
-              <div class="tab-pane fade" id="mobile-tab-pane" role="tabpanel" aria-labelledby="mobile-tab" [ngClass]="{ 'show active': selectedLoginMode === enumForLoginMode.MOBILE_LOGIN}"
-                tabindex="0">
+              <div class="tab-pane fade" id="mobile-tab-pane" role="tabpanel" aria-labelledby="mobile-tab"
+                [ngClass]="{ 'show active': selectedLoginMode === enumForLoginMode.MOBILE_LOGIN}" tabindex="0">
                 <div class='auth-forms' [formGroup]="mobileLoginFormGroup">
                   <h6>Continue with mobile number</h6>
                   <div class="form-group">
                     <div class="form-group-icon-start">
-                      <ng-select [items]="countryCodeList" bindLabel="label" bindValue="value" formControlName="country_code"
-                        [clearable]="true" class="theme-ngselect" appendTo="body" placeholder="Country Code">
+                      <ng-select [items]="countryCodeList" bindLabel="label" bindValue="value"
+                        formControlName="country_code" [clearable]="true" class="theme-ngselect" appendTo="body"
+                        placeholder="Country Code">
                       </ng-select>
                     </div>
                     <p class="error-msg"
@@ -108,8 +125,9 @@
                   <div class="form-group">
                     <div class="form-group-icon-start">
                       <div class="control-icon"><i class="bi bi-telephone"></i></div>
-                      <input type="text" class="form-control" placeholder="Mobile No" maxlength="12" formControlName="mobile_no"
-                        [(ngModel)]="mobileLoginObj.phone" (keyup.enter)="onMobileOTPLogin()" />
+                      <input type="text" class="form-control" placeholder="Mobile No" maxlength="12"
+                        formControlName="mobile_no" [(ngModel)]="mobileLoginObj.phone"
+                        (keyup.enter)="onMobileOTPLogin()" />
                     </div>
                     <p class="error-msg"
                       *ngIf="mobileLoginFormGroup.controls['mobile_no'].hasError('required') &&  mobileLoginFormGroup.controls['mobile_no'].touched">
@@ -122,7 +140,8 @@
                   </div>
                   <div class='forms-button'>
                     <button class="btn btn-primary" (click)="onMobileOTPLogin()">Continue</button>
-                    <asl-google-signin-button text="signin_with" type='standard' size='large'></asl-google-signin-button>
+                    <asl-google-signin-button text="signin_with" type='standard'
+                      size='large'></asl-google-signin-button>
                     <!-- <button class="btn btn-google"><img src="assets/images/google.svg"
                                           alt="Portfolio - Angular">Google</button> -->
                   </div>
@@ -152,7 +171,8 @@
           <div class='auth-forms'>
             <div class="form-group">
               <div class="form-group-otp">
-                <ng-otp-input (keyup.enter)="onMobileLoginVerification()" (onInputChange)="onOtpChange($event)" [config]="otpInputConfig" #ngOtpInput></ng-otp-input>
+                <ng-otp-input (keyup.enter)="onMobileLoginVerification()" (onInputChange)="onOtpChange($event)"
+                  [config]="otpInputConfig" #ngOtpInput></ng-otp-input>
               </div>
             </div>
             <div class="otp-resend-box">
@@ -160,7 +180,8 @@
               <p class="mb-0"><button class="btn btn-resendotp" (click)="onResendOTP()">Resend OTP</button></p>
             </div>
             <div class='forms-button'>
-              <button class="btn btn-primary" [disabled]="otpValue?.length === 6 ? false : true" (click)="onMobileLoginVerification()">Verify</button>
+              <button class="btn btn-primary" [disabled]="otpValue?.length === 6 ? false : true"
+                (click)="onMobileLoginVerification()">Verify</button>
             </div>
           </div>
           <div class='forms-footer'>
