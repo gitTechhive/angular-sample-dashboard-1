@@ -102,6 +102,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   /** Verify Captcha with Backend */
   captchaVerification() {
 
+    if(this.utilsService.isEmptyObjectOrNullUndefined(this.captchaInput)) {
+      this.utilsService.toasterService.error("Please enter Captcha!", '', {
+        closeButton: true,
+      });
+      return;
+    }
+
     const param = {
       uuId: this.captchaUUID,
       hiddenCaptcha: this.captchaInput
@@ -156,6 +163,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.selectedLoginMode = mode;
     this.mobileLoginFormGroup.reset();
     this.loginFormGroup.reset();
+    this.captchaInput = null;
     this.mobileLoginObj.phone = null;
   }
 
