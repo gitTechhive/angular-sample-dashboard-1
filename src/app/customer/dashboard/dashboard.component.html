@@ -109,8 +109,11 @@
             </div>
           </div>
           <div class="card-body">
-            <div class="dashboard-chart-container">
-              <img src="assets/images/chart1.svg" alt="Portfolio - Angular" />
+            <div *ngIf="!utilsService.isEmptyObjectOrNullUndefined(chartData)" class="dashboard-chart-container">
+              <apx-chart [series]="lineChart.series" [chart]="lineChart.chart" [xaxis]="lineChart.xaxis" [stroke]="lineChart.stroke"
+                [tooltip]="lineChart.tooltip" [dataLabels]="lineChart.dataLabels">
+              </apx-chart>
+              <!-- <img src="assets/images/chart1.svg" alt="Portfolio - Angular" /> -->
             </div>
           </div>
         </div>
@@ -127,8 +130,12 @@
             </div>
           </div>
           <div class="card-body">
-            <div class="dashboard-chart-container">
-              <img src="assets/images/chart2.svg" alt="Portfolio - Angular" />
+            <div *ngIf="!utilsService.isEmptyObjectOrNullUndefined(chartData)" class="dashboard-chart-container">
+              <apx-chart [series]="columnChart.series" [chart]="columnChart.chart" [dataLabels]="columnChart.dataLabels"
+                [plotOptions]="columnChart.plotOptions" [responsive]="columnChart.responsive" [xaxis]="columnChart.xaxis"
+                [legend]="columnChart.legend" [fill]="columnChart.fill">
+              </apx-chart>
+              <!-- <img src="assets/images/chart2.svg" alt="Portfolio - Angular" /> -->
             </div>
           </div>
         </div>
@@ -188,8 +195,11 @@
             <h4>Top device</h4>
           </div>
           <div class="card-body">
-            <div class="dashboard-chart-container">
-              <img src="assets/images/chart-top-device.svg" alt="Portfolio - Angular" />
+            <div *ngIf="!utilsService.isEmptyObjectOrNullUndefined(chartData)" class="dashboard-chart-container">
+              <!-- <img src="assets/images/chart-top-device.svg" alt="Portfolio - Angular" /> -->
+              <apx-chart [series]="donutChart.series" [chart]="donutChart.chart" [labels]="donutChart.labels"
+                [responsive]="donutChart.responsive">
+              </apx-chart>
             </div>
           </div>
         </div>
@@ -198,8 +208,11 @@
             <h4>Top country</h4>
           </div>
           <div class="card-body">
-            <div class="dashboard-chart-container">
-              <img src="assets/images/chart-top-country.svg" alt="Portfolio - Angular" />
+            <div *ngIf="!utilsService.isEmptyObjectOrNullUndefined(chartData)" class="dashboard-chart-container">
+              <apx-chart [series]="barChart.series" [chart]="barChart.chart" [dataLabels]="barChart.dataLabels"
+                [plotOptions]="barChart.plotOptions" [xaxis]="barChart.xaxis">
+              </apx-chart>
+              <!-- <img src="assets/images/chart-top-country.svg" alt="Portfolio - Angular" /> -->
             </div>
           </div>
         </div>
@@ -208,8 +221,11 @@
             <h4>New customer</h4>
           </div>
           <div class="card-body">
-            <div class="dashboard-chart-container">
-              <img src="assets/images/chart-new-customer.svg" alt="Portfolio - Angular" />
+            <div *ngIf="!utilsService.isEmptyObjectOrNullUndefined(chartData)" class="dashboard-chart-container">
+              <apx-chart [series]="donutChart.series" [chart]="donutChart.chart" [labels]="donutChart.labels"
+                [responsive]="donutChart.responsive">
+              </apx-chart>
+              <!-- <img src="assets/images/chart-new-customer.svg" alt="Portfolio - Angular" /> -->
             </div>
           </div>
         </div>
