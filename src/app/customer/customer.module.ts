@@ -17,14 +17,6 @@ const routes: Routes = [
       { path: 'settings', component: SettingsComponent },
     ]
   }
-  // { path: '', redirectTo: 'work_area', pathMatch: 'full' },
-  // {
-  //   path: 'work_area', component: CustomerComponent, children: [
-  //     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  //     { path: 'dashboard', component: DashboardComponent },
-  //     { path: 'my-profile', component: MyProfileComponent },
-  //   ]
-  // }
 ]
 
 @NgModule({

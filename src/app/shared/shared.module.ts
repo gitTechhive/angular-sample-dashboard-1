@@ -15,6 +15,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { AuthSidebarComponent } from './components/auth-sidebar/auth-sidebar.component';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
+import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -26,6 +27,7 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
     NgSelectModule,
     NgOtpInputModule,
     GoogleSigninButtonModule,
+    NgApexchartsModule,
     NgbTooltipModule
   ],
   exports: [
@@ -44,6 +46,7 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
     SidebarComponent,
     PaginationComponent,
     GoogleSigninButtonModule,
+    NgApexchartsModule,
     NgbTooltipModule
   ],
   declarations: [AccessDeniedComponent, NavbarComponent, NotFoundComponent, SessionExpiredComponent, SidebarComponent, AuthHeaderComponent, AuthSidebarComponent, AuthHeaderSigninComponent, AuthHeaderSignupComponent, SidebarComponent, PaginationComponent]
