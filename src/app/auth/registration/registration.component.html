@@ -4,7 +4,7 @@
       <!-- Sign Up Start -->
       <div *ngIf="step === enumForSignupStep.USER_DETAILS" class='auth-forms-outer'>
         <div class="auth-card">
-          <div>
+          <!-- <div>
             <img [src]="captchaImage" alt="test">
             <div class="form-group-icon-start">
               <input type="email" class="form-control" placeholder="Your Captcha" [(ngModel)]="captchaInput"/>
@@ -13,7 +13,7 @@
                 <button class="btn btn-primary" (click)="captchaRegenertion()">Regenerate</button>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class='auth-titlebar'>
             <div class="auth-logo-small">
               <img src="assets/images/auth-logo-small.svg" alt="Portfolio - Angular">
@@ -95,12 +95,29 @@
               </div>
               <p class="error-msg"
                 *ngIf="signUpFormGroup.controls['mobile_no'].hasError('required') &&  signUpFormGroup.controls['mobile_no'].touched">
-                {{utilsService.validationService.PHONE_NUMBER_REQUIRED}}
+                {{utilsService.validationService.MOBILE_NUMBER_REQUIRED}}
               </p>
               <p class="error-msg"
                 *ngIf="!signUpFormGroup.controls['mobile_no'].hasError('required') && !signUpFormGroup.controls['mobile_no'].valid && signUpFormGroup.controls['mobile_no'].touched">
-                {{utilsService.validationService.PHONE_NUMBER_INVALID}}
+                {{utilsService.validationService.MOBILE_NUMBER_INVALID}}
               </p>
+            </div>
+
+            <div class="form-group-captcha">
+              <div class="captcha-image">
+                <img [src]="captchaImage" alt="Captcha Code">
+                <div class="button-group">
+                  <button class="btn btn-link-button btn-sm" (click)="captchaRegenertion()">Regenerate</button>
+                </div>
+              </div>
+              <div class="captcha-control">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Your Captcha" [(ngModel)]="captchaInput" [(ngModel)]="captchaInput" [ngModelOptions]="{standalone: true}"/>
+                </div>
+                <div class="button-group">
+                  <button class="btn btn-primary btn-sm" (click)="captchaVerification()">Verify</button>
+                </div>
+              </div>
             </div>
           
             <!-- <div class="form-group">
