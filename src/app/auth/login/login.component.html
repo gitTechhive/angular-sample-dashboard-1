@@ -129,11 +129,11 @@
                     </p>
                     <p class="error-msg"
                       *ngIf="mobileLoginFormGroup.controls['mobile_no'].hasError('required') &&  mobileLoginFormGroup.controls['mobile_no'].touched">
-                      {{utilsService.validationService.PHONE_NUMBER_REQUIRED}}
+                      {{utilsService.validationService.MOBILE_NUMBER_REQUIRED}}
                     </p>
                     <p class="error-msg"
                       *ngIf="!mobileLoginFormGroup.controls['mobile_no'].hasError('required') && !mobileLoginFormGroup.controls['mobile_no'].valid && mobileLoginFormGroup.controls['mobile_no'].touched">
-                      {{utilsService.validationService.PHONE_NUMBER_INVALID}}
+                      {{utilsService.validationService.MOBILE_NUMBER_INVALID}}
                     </p>
                   </div>
                   <div class="form-group-captcha">
