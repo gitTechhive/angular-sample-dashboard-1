@@ -140,6 +140,125 @@
     }
 }
 
+// Dashboard
+.dashboard-welcome{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+
+    .dashboard-welcome-left{
+        h6{
+            color: #272B30;
+            margin-bottom: 0px;
+            font-size: 16px;
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+    .dashboard-welcome-right{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+
+        .form-group {
+            margin-bottom: 0;
+            min-width: 150px;
+        }
+    }
+}
+.card-statistics{
+    border: 1px solid #EFEFEF;
+    .card-body{
+        padding: 12px;
+    }
+
+    .card-top-container{
+        display: flex; flex-direction: row;
+        align-items: center;
+
+        .card-icon{
+            height: 34px;
+            width: 34px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #EFEFEF;
+            color: #101828;
+            margin-right: 8px;  
+            font-size: 16px; 
+            -webkit-text-stroke: 0.5px;         
+        }
+        h3{
+            font-size: 14px;
+            margin-bottom: 0;
+            color: #101828;
+            font-weight: 500;
+        }
+    }
+    .card-details-container{
+        margin-top: 20px;
+        display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+        .card-details-number{
+            h4{
+                color: $black_color;
+                margin-bottom: 0;
+                font-size: 17px;
+
+                sup{
+                    margin-left: 10px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+.card-dashboard-chart{
+    .card-body{
+        min-height: 260px;
+    }
+
+    &.card-dashboard-left1,
+    &.card-dashboard-left2,
+    &.card-dashboard-left3{
+        .card-header{
+            h4{
+                &::before{
+                    background-color: #CABDFF;
+                }
+            }
+        }
+    }
+
+    &.card-dashboard-right1,
+    &.card-dashboard-right2,
+    &.card-dashboard-right3{
+        .card-header{
+            h4{
+                &::before{
+                    background-color: #B1E5FC;
+                }
+            }
+        }
+    }
+
+    .nav-tabs-container{
+        .nav-tabs{
+            .nav-link{
+                font-size: 13px;
+                font-weight: 500;
+            }
+        }
+    }
+    .dashboard-chart-container{
+        text-align: center;
+    }
+}
+
 // Profile
 .profile-container{
     display: flex; flex-direction: row; align-items: center; margin-bottom: 20px;
