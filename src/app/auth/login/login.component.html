@@ -111,24 +111,22 @@
                 <div class='auth-forms' [formGroup]="mobileLoginFormGroup">
                   <h6>Continue with mobile number</h6>
                   <div class="form-group">
-                    <div class="form-group-icon-start">
+                    <div class="form-group-country-mobile">
                       <ng-select [items]="countryCodeList" bindLabel="label" bindValue="value"
                         formControlName="country_code" [clearable]="true" class="theme-ngselect" appendTo="body"
                         placeholder="Country Code">
                       </ng-select>
+                      <div class="form-group-icon-start">
+                        <div class="control-icon"><i class="bi bi-telephone"></i></div>
+                        <input type="text" class="form-control" placeholder="Mobile No" maxlength="12"
+                          formControlName="mobile_no" [(ngModel)]="mobileLoginObj.phone"
+                          (keyup.enter)="onMobileOTPLogin()" />
+                      </div>
                     </div>
                     <p class="error-msg"
                       *ngIf="mobileLoginFormGroup.controls['country_code'].hasError('required') &&  mobileLoginFormGroup.controls['country_code'].touched">
                       {{utilsService.validationService.COUNTRY_CODE_REQUIRED}}
                     </p>
-                  </div>
-                  <div class="form-group">
-                    <div class="form-group-icon-start">
-                      <div class="control-icon"><i class="bi bi-telephone"></i></div>
-                      <input type="text" class="form-control" placeholder="Mobile No" maxlength="12"
-                        formControlName="mobile_no" [(ngModel)]="mobileLoginObj.phone"
-                        (keyup.enter)="onMobileOTPLogin()" />
-                    </div>
                     <p class="error-msg"
                       *ngIf="mobileLoginFormGroup.controls['mobile_no'].hasError('required') &&  mobileLoginFormGroup.controls['mobile_no'].touched">
                       {{utilsService.validationService.PHONE_NUMBER_REQUIRED}}

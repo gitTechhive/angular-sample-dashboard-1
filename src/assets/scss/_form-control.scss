@@ -99,6 +99,58 @@
 }
 
 textarea{ height: 100px; resize: none; }
+.form-group-country-mobile{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+
+    .theme-ngselect{
+        width: 150px;
+        .ng-select-container {
+            background-color: #F4F4F4;
+            border-color: #F4F4F4;
+            height: 44px;
+
+            .ng-value-container{
+                .ng-input{
+                    top: 11px;
+                }
+            }
+        }
+    }
+    .form-group-icon-start{
+        width: calc(100% - 150px);
+    }
+}
+
+.theme-ngselect{
+    &.ng-select-opened{
+        .ng-select-container{
+            border: 1px solid $primary_color !important;
+        }
+    }
+    .ng-select-container{
+        box-shadow: none !important;
+        &:hover{
+            border: 1px solid $primary_color !important;
+        }
+    }
+    .ng-dropdown-panel{
+        border: 1px solid $primary_color !important;
+
+        .ng-dropdown-panel-items{
+            .ng-option{
+                text-align: left;
+                padding: 6px;
+            }
+            .ng-option-marked{
+                // background-color: $primary_light_color;
+                color: $primary_color;
+            }
+        }
+        
+    }
+}
 
 // Checkbox 
 .checkbox{margin:0}
