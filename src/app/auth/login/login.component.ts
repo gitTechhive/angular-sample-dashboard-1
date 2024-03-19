@@ -190,8 +190,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     // First, verify the captcha
-    this.utilsService.postMethodAPI(false, this.utilsService.serverVariableService.CAPTCHA_VERIFICATION, captchaVerificationParam, (captchaResponse) => {
-      if (!this.utilsService.isEmptyObjectOrNullUndefined(captchaResponse)) {
+    this.utilsService.postMethodAPI(false, this.utilsService.serverVariableService.CAPTCHA_VERIFICATION, captchaVerificationParam, (response) => {
+      if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
         // Captcha verified successfully, proceed with email/password login
 
         const loginParam = {
@@ -202,11 +202,11 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
 
         // Proceed with email/password login
-        this.utilsService.postMethodAPI(true, this.serverVariableService.LOGIN_API, loginParam, (loginResponse) => {
-          if (!this.utilsService.isEmptyObjectOrNullUndefined(loginResponse)) {
-            console.log(loginResponse);
-            const deserializedResponse = Deserialize(loginResponse);
-            this.setLocalStorage(deserializedResponse, deserializedResponse.token).then(() => {
+        this.utilsService.postMethodAPI(true, this.serverVariableService.LOGIN_API, loginParam, (response) => {
+          if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
+            console.log(response);
+            const loginResponse = Deserialize(response);
+            this.setLocalStorage(loginResponse, loginResponse.token).then(() => {
               this.utilsService.redirectTo('/customer/dashboard');
             })
           }
@@ -263,8 +263,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     };
 
     // Post Method API for captcha verification
-    this.utilsService.postMethodAPI(true, this.utilsService.serverVariableService.CAPTCHA_VERIFICATION, captchaParam, (captchaResponse) => {
-      if (!this.utilsService.isEmptyObjectOrNullUndefined(captchaResponse)) {
+    this.utilsService.postMethodAPI(true, this.utilsService.serverVariableService.CAPTCHA_VERIFICATION, captchaParam, (response) => {
+      if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
         // Captcha verified successfully, now proceed to send OTP
 
         const loginParam = {
