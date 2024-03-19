@@ -263,7 +263,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     };
 
     // Post Method API for captcha verification
-    this.utilsService.postMethodAPI(true, this.utilsService.serverVariableService.CAPTCHA_VERIFICATION, captchaParam, (response) => {
+    this.utilsService.postMethodAPI(false, this.utilsService.serverVariableService.CAPTCHA_VERIFICATION, captchaParam, (response) => {
       if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
         // Captcha verified successfully, now proceed to send OTP
 
@@ -275,7 +275,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         };
 
         // Post Method API for sending OTP
-        this.utilsService.postMethodAPI(false, this.utilsService.serverVariableService.SEND_OTP_MOBILE, loginParam, (response) => {
+        this.utilsService.postMethodAPI(true, this.utilsService.serverVariableService.SEND_OTP_MOBILE, loginParam, (response) => {
           if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
             // OTP sent successfully, now set verifyPhase to true
             this.verifyPhase = true;
