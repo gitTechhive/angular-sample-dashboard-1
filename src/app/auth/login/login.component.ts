@@ -170,31 +170,49 @@ export class LoginComponent implements OnInit, OnDestroy {
   /** Login w/ email and password */
   onEmailPasswordLogin() {
 
-    if(this.loginFormGroup.invalid) {
-      this.loginFormGroup.markAllAsTouched();
+    if (this.loginFormGroup.invalid || this.utilsService.isEmptyObjectOrNullUndefined(this.captchaInput)) {
+      if (this.loginFormGroup.invalid) {
+        this.loginFormGroup.markAllAsTouched();
+      }
+      if (this.utilsService.isEmptyObjectOrNullUndefined(this.captchaInput)) {
+        this.utilsService.toasterService.error("Please enter Captcha!", '', {
+          closeButton: true,
+        });
+      }
       return;
-    } 
-
+    }
+    
     const formGroupValue = this.loginFormGroup.value;
 
-    const param = {
-      email: formGroupValue.email,
-      password: formGroupValue.password,
-      type: this.enumForLoginMode.EMAIL_PASSWORD,
-      uuid: this.captchaUUID,
+    const captchaVerificationParam = {
+      uuId: this.captchaUUID,
+      hiddenCaptcha: this.captchaInput
     }
 
-    this.utilsService.postMethodAPI(true, this.serverVariableService.LOGIN_API, param, (response) => {
+    // First, verify the captcha
+    this.utilsService.postMethodAPI(false, this.utilsService.serverVariableService.CAPTCHA_VERIFICATION, captchaVerificationParam, (captchaResponse) => {
+      if (!this.utilsService.isEmptyObjectOrNullUndefined(captchaResponse)) {
+        // Captcha verified successfully, proceed with email/password login
 
-      if(!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
-        console.log(response);
-        const loginResponse = Deserialize(response);
-        this.setLocalStorage(loginResponse, loginResponse.token).then(() => {
-          this.utilsService.redirectTo('/customer/dashboard');
-        })
+        const loginParam = {
+          email: formGroupValue.email,
+          password: formGroupValue.password,
+          type: this.enumForLoginMode.EMAIL_PASSWORD,
+          uuid: this.captchaUUID,
+        }
+
+        // Proceed with email/password login
+        this.utilsService.postMethodAPI(true, this.serverVariableService.LOGIN_API, loginParam, (loginResponse) => {
+          if (!this.utilsService.isEmptyObjectOrNullUndefined(loginResponse)) {
+            console.log(loginResponse);
+            const deserializedResponse = Deserialize(loginResponse);
+            this.setLocalStorage(deserializedResponse, deserializedResponse.token).then(() => {
+              this.utilsService.redirectTo('/customer/dashboard');
+            })
+          }
+        });
       }
-    })
-
+    });
   }
 
   /** 
@@ -206,7 +224,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     const param = {
       email: email,
-      uuid: this.captchaUUID,
       googleId: googleId,
       type: this.enumForLoginMode.GOOGLE_LOGIN
     }
@@ -224,30 +241,50 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   }
 
-  /** Mobile Login function*/
+  /** Combined Mobile OTP Login and Captcha Verification function */
   onMobileOTPLogin() {
-
-    if(this.mobileLoginFormGroup.invalid) {
-      this.mobileLoginFormGroup.markAllAsTouched();
+    if (this.mobileLoginFormGroup.invalid || this.utilsService.isEmptyObjectOrNullUndefined(this.captchaInput)) {
+      if (this.mobileLoginFormGroup.invalid) {
+        this.mobileLoginFormGroup.markAllAsTouched();
+      }
+      if (this.utilsService.isEmptyObjectOrNullUndefined(this.captchaInput)) {
+        this.utilsService.toasterService.error("Please enter Captcha!", '', {
+          closeButton: true,
+        });
+      }
       return;
-    } 
+    }
 
     const formGroupValue = this.mobileLoginFormGroup.value;
 
-    const param = {
-      phoneNo: formGroupValue.mobile_no,
-      countryCode: formGroupValue.country_code,
-      type: this.enumForLoginMode.MOBILE_LOGIN,
-      uuid: this.captchaUUID,
-    }
+    const captchaParam = {
+      uuId: this.captchaUUID,
+      hiddenCaptcha: this.captchaInput
+    };
 
-    this.utilsService.getMethodAPI(true, this.utilsService.serverVariableService.SEND_OTP_MOBILE, param, (response) => {
-      if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
-        this.verifyPhase = true;
+    // Post Method API for captcha verification
+    this.utilsService.postMethodAPI(true, this.utilsService.serverVariableService.CAPTCHA_VERIFICATION, captchaParam, (captchaResponse) => {
+      if (!this.utilsService.isEmptyObjectOrNullUndefined(captchaResponse)) {
+        // Captcha verified successfully, now proceed to send OTP
+
+        const loginParam = {
+          phoneNo: formGroupValue.mobile_no,
+          countryCode: formGroupValue.country_code,
+          type: this.enumForLoginMode.MOBILE_LOGIN,
+          uuid: this.captchaUUID,
+        };
+
+        // Post Method API for sending OTP
+        this.utilsService.postMethodAPI(false, this.utilsService.serverVariableService.SEND_OTP_MOBILE, loginParam, (response) => {
+          if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
+            // OTP sent successfully, now set verifyPhase to true
+            this.verifyPhase = true;
+          }
+        });
       }
-    })
+    });
   }
-
+  
   /** OTP Verification Phase */
   onMobileLoginVerification() {
 

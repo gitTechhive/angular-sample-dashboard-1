@@ -26,7 +26,7 @@ export class AppComponent {
     });
 
     if(userData){
-      this.utilsService.username = `${userData.first_name} ${userData.last_name}`;
+      this.utilsService.username = `${userData.firstName} ${userData.lastName}`;
       this.utilsService.userProfilePicture = userData.profile_pic_url;
     }
     
