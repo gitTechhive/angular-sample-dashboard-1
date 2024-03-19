@@ -172,27 +172,48 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   /** Registration of User */
   onRegistration() {
 
-    if(this.signUpFormGroup.invalid) {
-      this.signUpFormGroup.markAllAsTouched();
+    if (this.signUpFormGroup.invalid || this.utilsService.isEmptyObjectOrNullUndefined(this.captchaInput)) {
+      if (this.signUpFormGroup.invalid) {
+        this.signUpFormGroup.markAllAsTouched();
+      }
+      if (this.utilsService.isEmptyObjectOrNullUndefined(this.captchaInput)) {
+        this.utilsService.toasterService.error("Please enter Captcha!", '', {
+          closeButton: true,
+        });
+      }
       return;
     }
 
-    const param = {
-      firstName: this.signUpObj.firstName,
-      lastName: this.signUpObj.lastName,
-      countryCode: this.signUpObj.countryCode,
-      email: this.signUpObj.email,
-      mobileNo: this.signUpObj.mobileNo,
-      uuid: this.captchaUUID
-    }
+    const captchaParam = {
+      uuId: this.captchaUUID,
+      hiddenCaptcha: this.captchaInput
+    };
 
-    this.utilsService.postMethodAPI(true, this.serverVariableService.REGISTRATION_SEND_OTP_API, param, (response) => {
+    // Post Method API for captcha verification
+    this.utilsService.postMethodAPI(false, this.utilsService.serverVariableService.CAPTCHA_VERIFICATION, captchaParam, (response) => {
+      if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
+        // Captcha verified successfully, now proceed to registration
 
-      if(!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
-        this.step = this.enumForSignupStep.OTP_VERIFICATION;
-        this.signUpObj.requestId = response.requestId;
+        const param = {
+          firstName: this.signUpObj.firstName,
+          lastName: this.signUpObj.lastName,
+          countryCode: this.signUpObj.countryCode,
+          email: this.signUpObj.email,
+          mobileNo: this.signUpObj.mobileNo,
+          uuid: this.captchaUUID
+        }
+
+        // Post Method API for sending OTP
+        this.utilsService.postMethodAPI(true, this.serverVariableService.REGISTRATION_SEND_OTP_API, param, (response) => {
+
+          if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
+            this.step = this.enumForSignupStep.OTP_VERIFICATION;
+            this.signUpObj.requestId = response.requestId;
+          }
+        })
       }
-    })
+    });
+
   }
 
   /**On Submit OTP in Registration */
