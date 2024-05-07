@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { GoogleInitOptions, GoogleLoginProvider, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const googleLoginOptions: GoogleInitOptions = {
   oneTapEnabled: false, // default is true
@@ -26,6 +27,7 @@ const googleLoginOptions: GoogleInitOptions = {
     }),
   ],
   providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

@@ -46,6 +46,9 @@ export class ForgotPasswordComponent implements OnInit {
   /**Variable to store the current step in forgot password */
   forgotPasswordStep: string = this.enumForForgotPasswordStep.EMAIL;
 
+  /**Request ID string */
+  requestId: string;
+
   constructor(public utilsService: UtilsService, public fb: FormBuilder) { }
 
   ngOnInit() {
@@ -84,6 +87,7 @@ export class ForgotPasswordComponent implements OnInit {
     this.utilsService.postMethodAPI(true, this.utilsService.serverVariableService.FORGOT_PASSWORD_EMAIL_VERIFY, param, (response) => {
       if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
         this.forgotPasswordStep = this.enumForForgotPasswordStep.OTP_PHASE
+        this.requestId = response.requestId
       }
     })
   }
@@ -130,6 +134,7 @@ export class ForgotPasswordComponent implements OnInit {
       const param = {
         email: this.userOb.email,
         otp: this.otpValue,
+        requestId: this.requestId
       };
 
       this.utilsService.postMethodAPI(true, this.utilsService.serverVariableService.FORGOT_PASSWORD_OTP_VERIFICATION, param, (response) => {
