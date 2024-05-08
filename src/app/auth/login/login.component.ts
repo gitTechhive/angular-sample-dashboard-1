@@ -55,6 +55,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   captchaUUID: string;
   /** String to handle captcha Input */
   captchaInput: string;
+  /** String to handle requestID for OTP */
+  requestId: string;
 
   /**Array holding Country Code Data */
   countryCodeList: string[] = [];
@@ -279,6 +281,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
             // OTP sent successfully, now set verifyPhase to true
             this.verifyPhase = true;
+            this.requestId = response.requestId
           }
         });
       }
@@ -291,7 +294,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (this.otpValue?.length === 6) {
       const param = {
         phoneNo: this.mobileLoginObj.phone,
-        otp: this.otpValue
+        otp: this.otpValue,
+        requestId: this.requestId
       }
   
       this.utilsService.postMethodAPI(true, this.serverVariableService.MOBILE_LOGIN_VERIFICATION, param, (response) => {
