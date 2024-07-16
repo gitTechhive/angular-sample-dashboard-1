@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Deserialize } from 'cerialize';
 import { Charts } from 'src/app/models/Charts';
@@ -27,10 +28,16 @@ export class DashboardComponent implements OnInit {
   verticalBarChart: Charts;
   /**Dashboard Data variable */
   dashboardData = new Dashboard();
+  /**Date */
+  date: any;
 
   constructor(public utilsService: UtilsService, private serverVariableService: ServerVariableService) {
 
     this.getChartData();
+
+    const datePipe = new DatePipe('en-US');
+    const date = new Date(); 
+    this.date = datePipe.transform(date, 'yyyy-MM-dd');
 
   }
 
