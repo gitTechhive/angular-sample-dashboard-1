@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Deserialize } from 'cerialize';
+import { Charts } from 'src/app/models/Charts';
 import { ServerVariableService } from 'src/app/shared/services/server-variable.service';
 import { UtilsService } from 'src/app/shared/services/utils.service';
 
@@ -13,15 +15,15 @@ export class DashboardComponent implements OnInit {
   chartData = new Array<any>();
 
   /**Variable to Store Column Chart data */
-  columnChart: any;
+  columnChart: Charts;
   /**Variable to Store Line Chart data */
-  lineChart: any;
+  lineChart: Charts;
   /**Variable to Store Bar Chart data */
-  barChart: any;
+  barChart: Charts;
   /**Variable to Store Donut Chart data */
-  donutChart: any;
+  donutChart: Charts;
   /**Variable to Store Vertical Bar Chart data */
-  verticalBarChart: any;
+  verticalBarChart: Charts;
 
   constructor(public utilsService: UtilsService, private serverVariableService: ServerVariableService) {
 
@@ -49,11 +51,11 @@ export class DashboardComponent implements OnInit {
           };
         });
 
-        this.columnChart = this.chartData.filter(v => v.chartType === 'columnChart')[0]?.value
-        this.lineChart = this.chartData.filter(v => v.chartType === 'lineChart')[0]?.value
-        this.barChart = this.chartData.filter(v => v.chartType === 'barChart')[0]?.value
-        this.donutChart = this.chartData.filter(v => v.chartType.trim() === 'donutChart')[0]?.value
-        this.verticalBarChart = this.chartData.filter(v => v.chartType.trim() === 'donutChart')[0]?.value
+        this.columnChart  = Deserialize(this.chartData.filter(v => v.chartType === 'columnChart')[0]?.value)
+        this.lineChart    = Deserialize(this.chartData.filter(v => v.chartType === 'lineChart')[0]?.value)
+        this.barChart     = Deserialize(this.chartData.filter(v => v.chartType === 'barChart')[0]?.value)
+        this.donutChart   = Deserialize(this.chartData.filter(v => v.chartType.trim() === 'donutChart')[0]?.value)
+        this.verticalBarChart = Deserialize(this.chartData.filter(v => v.chartType.trim() === 'donutChart')[0]?.value)    
       }
     })
   }
