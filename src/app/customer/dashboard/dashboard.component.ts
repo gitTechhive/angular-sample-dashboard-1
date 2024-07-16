@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Deserialize } from 'cerialize';
 import { Charts } from 'src/app/models/Charts';
+import { Dashboard } from 'src/app/models/Dashboard';
 import { ServerVariableService } from 'src/app/shared/services/server-variable.service';
 import { UtilsService } from 'src/app/shared/services/utils.service';
 
@@ -24,6 +25,8 @@ export class DashboardComponent implements OnInit {
   donutChart: Charts;
   /**Variable to Store Vertical Bar Chart data */
   verticalBarChart: Charts;
+  /**Dashboard Data variable */
+  dashboardData = new Dashboard();
 
   constructor(public utilsService: UtilsService, private serverVariableService: ServerVariableService) {
 
@@ -44,7 +47,9 @@ export class DashboardComponent implements OnInit {
     this.utilsService.getMethodAPI(false, this.serverVariableService.DASHBOARD_CHARTS_API, param, (response) => {
       if (!this.utilsService.isEmptyObjectOrNullUndefined(response)) {
 
-        this.chartData = response.map(chart => {
+        this.dashboardData = Deserialize(response, Dashboard);
+
+        this.chartData = response.chartData.map(chart => {
           return {
             ...chart,
             value: JSON.parse(chart.value)

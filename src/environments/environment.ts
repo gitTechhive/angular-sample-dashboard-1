@@ -4,8 +4,8 @@
 
 export const environment = {
     production: false,
-    // API_URL: 'http://192.168.2.125:9002/',
-    API_URL: 'http://192.168.2.105:4001/',
+    API_URL: 'http://192.168.2.125:9002/',
+    // API_URL: 'http://192.168.2.105:4001/',
     // API_URL: 'http://192.168.2.164:4000/',
     WEBSOCKET_CONNECTION_URL: '',
 };

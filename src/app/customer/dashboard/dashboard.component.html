@@ -24,7 +24,7 @@
             </div>
             <div class="card-details-container">
               <div class="card-details-number">
-                <h4>2,420<sup class="text-success">40%<i class="bi bi-arrow-up-right ms-1"></i></sup></h4>
+                <h4>{{dashboardData?.totalCustomer}}<sup class="text-success">{{dashboardData?.totalCustomerPer}}%<i class="bi bi-arrow-up-right ms-1"></i></sup></h4>
               </div>
               <div class="card-details-chart">
                 <img src="assets/images/chart-small-1.svg" alt="PPortfolio - Angular" />
@@ -44,7 +44,7 @@
             </div>
             <div class="card-details-container">
               <div class="card-details-number">
-                <h4>2,420<sup class="text-success">40%<i class="bi bi-arrow-up-right ms-1"></i></sup></h4>
+                <h4>{{dashboardData?.totalMember}}<sup class="text-success">{{dashboardData?.totalMemberPer}}%<i class="bi bi-arrow-up-right ms-1"></i></sup></h4>
               </div>
               <div class="card-details-chart">
                 <img src="assets/images/chart-small-2.svg" alt="PPortfolio - Angular" />
@@ -64,7 +64,7 @@
             </div>
             <div class="card-details-container">
               <div class="card-details-number">
-                <h4>2,420<sup class="text-success">40%<i class="bi bi-arrow-up-right ms-1"></i></sup></h4>
+                <h4>{{dashboardData?.activeNow}}<sup class="text-success">{{dashboardData?.activeNowPer}}%<i class="bi bi-arrow-up-right ms-1"></i></sup></h4>
               </div>
               <div class="card-details-chart">
                 <img src="assets/images/chart-small-3.svg" alt="PPortfolio - Angular" />
@@ -84,7 +84,7 @@
             </div>
             <div class="card-details-container">
               <div class="card-details-number">
-                <h4>$45K<sup class="text-success">40%<i class="bi bi-arrow-up-right ms-1"></i></sup></h4>
+                <h4>${{dashboardData?.myBalance}}<sup class="text-success">{{dashboardData?.myBalancePer}}%<i class="bi bi-arrow-up-right ms-1"></i></sup></h4>
               </div>
               <div class="card-details-chart">
                 <img src="assets/images/chart-small-4.svg" alt="PPortfolio - Angular" />
@@ -139,7 +139,7 @@
             </div>
           </div>
         </div>
-        <div class="card card-ribbon card-dashboard-chart card-dashboard-left3 card-flex-layout">
+        <!-- <div class="card card-ribbon card-dashboard-chart card-dashboard-left3 card-flex-layout">
           <div class="card-header">
             <h4>Product sales</h4>
             <div class="card-header-right">
@@ -187,7 +187,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
         <div class="card card-ribbon card-dashboard-chart card-dashboard-right1">
@@ -231,27 +231,5 @@
         </div>
       </div>
     </div>
-
-    <!-- <ng-container *ngIf="!utilsService.isEmptyObjectOrNullUndefined(chartData)">
-    
-      <apx-chart [series]="columnChart.series" [chart]="columnChart.chart" [dataLabels]="columnChart.dataLabels"
-        [plotOptions]="columnChart.plotOptions" [responsive]="columnChart.responsive" [xaxis]="columnChart.xaxis"
-        [legend]="columnChart.legend" [fill]="columnChart.fill">
-      </apx-chart>
-    
-      <apx-chart [series]="barChart.series" [chart]="barChart.chart" [dataLabels]="barChart.dataLabels"
-        [plotOptions]="barChart.plotOptions" [xaxis]="barChart.xaxis">
-      </apx-chart>
-    
-      <apx-chart [series]="donutChart.series" [chart]="donutChart.chart" [labels]="donutChart.labels"
-        [responsive]="donutChart.responsive">
-      </apx-chart>
-    
-      <apx-chart [series]="lineChart.series" [chart]="lineChart.chart" [xaxis]="lineChart.xaxis" [stroke]="lineChart.stroke"
-        [tooltip]="lineChart.tooltip" [dataLabels]="lineChart.dataLabels">
-      </apx-chart>
-    
-    </ng-container> -->
-
   </div>
 </div>
